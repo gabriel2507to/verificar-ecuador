@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVZKYZW6ED"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CVZKYZW6ED');
+    </script>
+
+    <!-- Meta etiquetas de configuración -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerifiCar Ecuador | Consulta de Multas y Placas en Ecuador</title>
+    <meta name="description" content="Evita sorpresas al comprar tu auto usado en Ecuador. Realiza tu consulta de multas, gravámenes y revisión de placas desde Cuenca con servicio a nivel nacional. Seguro y garantizado.">
+
+    <!-- Etiquetas para compartir en WhatsApp/Redes Sociales -->
+    <link rel="canonical" href="https://verificarecuador.com/">
+    <meta property="og:title" content="VerifiCar Ecuador | Reporte de Historial Vehicular">
+    <meta property="og:description" content="Interpretación profesional de CUV y reporte de historial vehicular. Seguro, rápido y a nivel nacional.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://verificarecuador.com/">
+   
+   <style>
+
+     /* DISEÑO GENERAL (Estilo Limpio y Claro) */
+      /* --- DISEÑO GENERAL (Estilo Consultoría) --- */
+        :root {
+            --primary-blue: #1d4099;
+            --whatsapp-green: #25d366;
+            --text-dark: #1a202c;
+            --text-light: #64748b;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- NAVEGACIÓN STICKY --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img { height: 50px; display: block; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover { color: #2faed6; }
+
+        /* --- SECCIÓN HERO (INICIO) --- */
+        #inicio {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 0 0 40px 40px;
+        }
+
+        h1 { font-size: 2.2rem; margin-bottom: 15px; letter-spacing: -0.02em; }
+        .subtitle { color: var(--text-light); font-size: 1.1rem; max-width: 700px; margin: 0 auto 30px; }
+
+        .form-box {
+            max-width: 450px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .btn-main {
+            width: 100%;
+            padding: 18px;
+            background: var(--whatsapp-green);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-main:hover { background: #128c7e; transform: translateY(-2px); }
+
+        /* --- SECCIÓN QUE INCLUYE EL REPORTE --- */
+        #detalles { max-width: 900px; margin: 80px auto; padding: 0 20px; }
+        .card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            border-left: 6px solid var(--primary-blue);
+        }
+
+        /* --- SECCIÓN TUTORIAL (3 PASOS VIVOS) --- */
+        #tutoriales { padding: 80px 20px; background: #fafafa; text-align: center; }
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .step-card {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .step-card:hover { transform: translateY(-10px); }
+        .step-num { 
+            width: 50px; height: 50px; border-radius: 50%; display: flex; 
+            align-items: center; justify-content: center; margin: 0 auto 20px;
+            color: white; font-weight: bold; font-size: 1.2rem;
+        }
+
+        /* --- PREGUNTAS FRECUENTES --- */
+        #faq { max-width: 800px; margin: 80px auto; padding: 0 20px; }
+        .faq-item {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-blue);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 60px 20px;
+            background: var(--bg-light);
+            border-top: 2px solid var(--primary-blue);
+            text-align: center;
+        }
+
+        /* --- RESPONSIVIDAD (Móvil) --- */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 15px; }
+            nav ul { gap: 15px; font-size: 0.85rem; }
+            h1 { font-size: 1.8rem; }
+            .form-box { padding: 25px; }
+            .step-card { max-width: 100%; }
+        }
+
+        /* Estilo Botón WhatsApp Flotante */
+        .wp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--whatsapp-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.2);
+            z-index: 2000;
+            text-decoration: none;
+        }
+
+/* Estilos para el menú desplegable */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.menu-toggle {
+    display: none; /* Oculto en escritorio */
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-blue);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    
+    .nav-links {
+        display: none; /* Oculto por defecto en móvil */
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: white;
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active { display: flex; } /* Clase que activaremos con JS */
+}
+
+
+/* --- NAVEGACIÓN Y ESTRUCTURA GLOBAL --- */
+html {
+    scroll-padding-top: 80px; /* Esto evita que el menú tape el inicio de la sección al hacer clic */
+}
+
+body {
+    padding-top: 0; /* Aseguramos que no haya espacio extra arriba */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: var(--white); /* ¡IMPORTANTE: fondo blanco sólido! */
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); /* Sombra más definida */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 80px; /* Altura fija para que no varíe */
+}
+
+/* Mejora para el logo */
+.logo img { 
+    height: 50px; 
+    width: auto; 
+    display: block; 
+}
+
+/* Mejora para móviles */
+@media (max-width: 768px) {
+    nav {
+        height: auto;
+        padding: 10px 20px;
+    }
+    
+    nav ul {
+        gap: 10px;
+        flex-wrap: wrap; /* Si el menú es muy largo, baja a una segunda línea */
+        justify-content: center;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+<nav id="navbar" class="fixed top-0 left-0 w-full bg-white border-b border-slate-200 px-6 py-3 z-50 flex justify-between items-center transition-transform duration-300"></nav>
+<nav>
+   <div class="logo">
+    <img src="img/verifiCarlogo.png" alt="VerifiCar Logo" width="500" height="150" loading="lazy">
+</div>
+    
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio" onclick="toggleMenu()">Inicio</a></li>
+        <li><a href="#tutoriales" onclick="toggleMenu()">¿Cómo funciona?</a></li>
+        <li><a href="#detalles" onclick="toggleMenu()">¿Qué incluye?</a></li>
+        <li><a href="#Guia de Compra" onclick="toggleMenu()">Guia de Compra</a></li>
+        <li><a href="interpretacion/index2.html" onclick="toggleMenu()" class="text-[var(--primary-blue)] font-bold flex items-center gap-1">
+        <i class="fa-solid fa-mobile-screen-button"></i> App VerifiCar Ecuador
+    </a></li>
+        <li><a href="#contacto" onclick="toggleMenu()">Contacto</a></li>
+        
+    </ul>
+</nav>
+
+    <!-- SECCIÓN 1: INICIO -->
+ <section id="inicio" style="text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 0 0 40px 40px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
+    
+    <h1 style="color: #1d4099; font-size: 2.2rem; margin-bottom: 15px;">
+        <img src="https://img.icons8.com/color/48/000000/car-crash.png" alt="Icono auto" style="vertical-align: middle; margin-right: 10px;">"¿Vas a comprar un auto usado en Ecuador? No arriesgues tu dinero."
+    </h1>
+    
+    
+    <p style="max-width: 700px; margin: 0 auto 30px auto; color: #1a1a1a; line-height: 1.6;">
+        <img src="https://img.icons8.com/color/24/000000/warning-shield.png" alt="Icono advertencia" style="vertical-align: middle; margin-right: 8px;">
+       "Evita estafas y multas ocultas. Solicita tu Dictamen de Auditoría enviando la placa al botón de abajo. Analizamos el historial real del vehículo para que negocies tu compra con datos precisos en mano."
+    </p>
+
+    <div class="form-box" style="max-width: 450px; margin: 20px auto; background: #ffffff; padding: 30px; border-radius: 15px; border: 1px solid #e1e1e1; box-shadow: 0 10px 25px rgba(0,0,0,0.1); font-family: sans-serif;">
+    
+    <label for="placa" style="display:block; margin-bottom: 15px; color: #1a1a1a; font-weight: bold; font-size: 1.1rem; text-align: center;">
+        <i class="fa-solid fa-id-card" style="color: #007bff; margin-right: 8px;"></i> Ingresa la Placa del Vehículo:
+    </label>
+    
+    <input type="text" id="placa" placeholder="Ej: ABC-1234" maxlength="8" oninput="formatearPlaca(this)" 
+           style="width: 100%; padding: 15px; border: 2px solid #ddd; border-radius: 8px; text-align: center; font-size: 1.4rem; box-sizing: border-box; margin-bottom: 20px; outline-color: #25d366;">
+    
+    <button class="btn-main" onclick="ejecutarConsulta()" 
+            style="width: 100%; padding: 15px; background: #25d366; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; display: flex; align-items: center; justify-content: center;">
+        <i class="fa-brands fa-whatsapp" style="margin-right: 10px; font-size: 1.3rem;"></i> Iniciar consulta
+    </button>
+    
+    <p style="text-align: center; font-size: 0.85rem; color: #666; margin-top: 15px; line-height: 1.4;">
+        <i class="fa-solid fa-shield-check" style="color: #25d366; margin-right: 5px;"></i> ✅ 100% Seguro 
+        <span style="margin: 0 10px; color: #ccc;">|</span>
+        <i class="fa-solid fa-circle-dollar-to-slot" style="color: #f39c12; margin-right: 5px;"></i> Pago único $5.00 mediante Deuna o Transferencia
+    </p>
+</div>
+    <h2 style="color: #1a1a1a; font-size: 1.2rem; margin-bottom: 25px; font-weight: normal;">
+        <img src="https://img.icons8.com/color/32/000000/search-property.png" alt="Icono búsqueda" style="vertical-align: middle; margin-right: 10px;">Verifica el historial legal, multas y gravámenes antes de cerrar el trato. Servicio rápido y seguro para vehículos de todo el país, con el respaldo y experiencia de nuestro equipo en Cuenca.
+    </h2>
+</section>
+
+<section id="asesoria" style="padding: 60px 20px; background: #ffffff; text-align: center;">
+    <h2 style="font-size: 2rem; margin-bottom: 40px; color: #1d4099;">¿Por qué elegir VerifiCar Ecuador?</h2>
+    
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: 0 auto;">
+        
+        <div style="flex: 1; min-width: 250px; padding: 20px;">
+            <i class="fa-solid fa-clock" style="font-size: 3rem; color: #007bff; margin-bottom: 15px;"></i>
+            <h3 style="margin: 10px 0; color: #1a1a1a;">Rapidez garantizada</h3>
+            <p style="color: #1a1a1a; line-height: 1.5;">No esperes días. Recibe el reporte detallado de tu vehículo en menos de 20 minutos.</p>
+        </div>
+
+        <div style="flex: 1; min-width: 250px; padding: 20px;">
+            <i class="fa-solid fa-file-shield" style="font-size: 3rem; color: #28a745; margin-bottom: 15px;"></i>
+            <h3 style="margin: 10px 0; color: #1a1a1a;">Información clara y precisa</h3>
+            <p style="color: #1a1a1a; line-height: 1.5;">Verificamos gravámenes, multas y estado legal directamente con fuentes oficiales.</p>
+        </div>
+
+        <div style="flex: 1; min-width: 250px; padding: 20px;">
+            <i class="fa-solid fa-headset" style="font-size: 3rem; color: #f39c12; margin-bottom: 15px;"></i>
+            <h3 style="margin: 10px 0; color: #1a1a1a;">Asesoría profesional</h3>
+            <p style="color: #1a1a1a; line-height: 1.5;">Operamos desde Cuenca para todo el Ecuador, brindando acompañamiento en cada etapa de tu compra.</p>
+        </div>
+
+    </div>
+</section>
+ 
+
+<!-- SECCIÓN DE BENEFICIOS Y SEO LOCAL -->
+
+<section id="detalles"style="max-width: 700px; margin: 60px auto; padding: 40px 20px; font-family: sans-serif; color: #1a1a1a;">
+    
+    <h2 style="text-align: center; color: #1d4099; font-size: 2rem; margin-bottom: 40px;">
+        ¿Qué incluye el Reporte de VerifiCar?
+    </h2>
+
+    <div style="background: #ffffff; padding: 25px; border-radius: 15px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px; text-align: center;">
+        <h3 style="margin: 0 0 15px 0; font-size: 1.2rem; color: #1d4099;">
+            <i class="fa-solid fa-traffic-light" style="margin-right: 10px;"></i>Diagnóstico tipo Semáforo
+        </h3>
+        <p style="margin: 0; font-size: 1rem; color: #444; line-height: 1.6;">
+            Análisis visual instantáneo: <br>
+            <strong style="color: #27ae60;">🟢 Verde (Seguro)</strong> • 
+            <strong style="color: #f39c12;">🟡 Amarillo (Precaución)</strong> • 
+            <strong style="color: #c0392b;">🔴 Rojo (Alerta)</strong>
+        </p>
+    </div>
+
+    <div style="display: grid; gap: 20px;">
+        
+        <div style="background: #ffffff; padding: 20px; border-radius: 12px; border-left: 5px solid #27ae60; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #1d4099; font-size: 1.1rem; margin: 0 0 8px 0;">
+                <i class="fa-solid fa-car-side" style="margin-right: 10px; color: #27ae60;"></i>Historial de Gravámenes y Propietarios
+            </h3>
+            <p style="margin: 0; font-size: 0.95rem; color: #1a1a1a; line-height: 1.6;">
+                Verificamos datos del SRI y registros oficiales sobre alertas de prohibiciones de venta, prendas comerciales o contratos bloqueados.
+            </p>
+        </div>
+
+        <div style="background: #ffffff; padding: 20px; border-radius: 12px; border-left: 5px solid #f39c12; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #1d4099; font-size: 1.1rem; margin: 0 0 8px 0;">
+                <i class="fa-solid fa-file-invoice-dollar" style="margin-right: 10px; color: #f39c12;"></i>Consulta de Multas ANT y CTE
+            </h3>
+            <p style="margin: 0; font-size: 0.95rem; color: #1a1a1a; line-height: 1.6;">
+                Detalle completo de citaciones pendientes en la Agencia Nacional de Tránsito (ANT), CTE y agencias municipales (AMT, ATM, EMOV).
+            </p>
+        </div>
+
+        <div style="background: #ffffff; padding: 20px; border-radius: 12px; border-left: 5px solid #c0392b; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <h3 style="color: #1d4099; font-size: 1.1rem; margin: 0 0 8px 0;">
+                <i class="fa-solid fa-gavel" style="margin-right: 10px; color: #c0392b;"></i>Pasado Judicial y Reportes de Robo
+            </h3>
+            <p style="margin: 0; font-size: 0.95rem; color: #1a1a1a; line-height: 1.6;">
+                Revisamos el sistema de la Función Judicial para descartar procesos legales, demandas o alertas vigentes de la Policía Nacional.
+            </p>
+        </div>
+    </div>
+
+    <p style="text-align: center; font-size: 0.9rem; color: #1a1a1a; margin-top: 40px; font-style: italic; background: #f9f9f9; padding: 15px; border-radius: 8px;">
+        <i class="fa-solid fa-shield-halved" style="margin-right: 8px;"></i> Evita estafas en ferias y patios de autos. Tu consulta es procesada de forma confidencial y segura.
+    </p>
+
+</section>
+
+    <!-- SECCIÓN 2: TUTORIALES / CÓMO FUNCIONA -->
+<section id="tutoriales" style="text-align: center; padding: 80px 20px; font-family: sans-serif; background-color: #f8f9fa;">
+    <h2 style="color: #1d4099; font-size: 2rem; margin-bottom: 50px;">Obtén tu reporte en 3 pasos sencillos</h2>
+    
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1100px; margin: 0 auto;">
+
+        <div style="flex: 1; min-width: 280px; max-width: 350px; background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 25px rgba(46, 204, 113, 0.2); border-top: 8px solid #2ECC71;">
+            <div style="background: #2ECC71; color: black; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; font-size: 1.5rem; font-weight: bold;">1</div>
+            <i class="fa-solid fa-keyboard" style="font-size: 2.5rem; color: #2ECC71; margin-bottom: 15px;"></i>
+            <h3 style="color: #1d4099; margin: 0 0 10px 0;">Escribe la Placa</h3>
+            <p style="font-size: 15px; color: #1a1a1a; line-height: 1.6; font-weight: 500;">Escríbenos por WhatsApp con el número de placa.</p>
+        </div>
+
+        <div style="flex: 1; min-width: 280px; max-width: 350px; background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2); border-top: 8px solid #FFD700;">
+            <div style="background: #FFD700; color: black; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; font-size: 1.5rem; font-weight: bold;">2</div>
+            <i class="fa-solid fa-magnifying-glass-chart" style="font-size: 2.5rem; color: #FFD700; margin-bottom: 15px;"></i>
+            <h3 style="color: #1d4099; margin: 0 0 10px 0;">Verificación</h3>
+            <p style="font-size: 15px; color: #1a1a1a; line-height: 1.6; font-weight: 500;">Consultamos en tiempo real los sistemas de la ANT, SRI, ATM, EMOV y la Función Judicial.</p>
+        </div>
+
+        <div style="flex: 1; min-width: 280px; max-width: 350px; background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 25px rgba(231, 76, 60, 0.2); border-top: 8px solid #E74C3C;">
+            <div style="background: #E74C3C; color: black; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; font-size: 1.5rem; font-weight: bold;">3</div>
+            <i class="fa-solid fa-file-pdf" style="font-size: 2.5rem; color: #E74C3C; margin-bottom: 15px;"></i>
+            <h3 style="color: #1d4099; margin: 0 0 10px 0;">Recibe tu PDF</h3>
+            <p style="font-size: 15px; color: #1a1a1a; line-height: 1.6; font-weight: 500;">Te enviamos un informe digital estético y fácil de leer directo a tu celular en menos de 20 minutos.</p>
+        </div>
+
+    </div>
+
+
+   <div style="margin-top: 40px; padding: 20px; border-top: 2px solid #f0f0f0;">
+    <p style="font-size: 18px; color: #333; margin-bottom: 15px;">¿Tú también quieres tranquilidad al comprar tu vehículo?</p>
+    
+    <!-- He agregado target="_blank" aquí abajo -->
+    <a href="https://wa.me/593992661432?text=Hola%20VerifiCar%20Ecuador,%20esta%20es%20mi%20placa:%20[PLACA]" 
+       target="_blank" 
+       style="display: inline-block; background-color: #25D366; color: #ffffff; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+       Solicita tu reporte hoy mismo
+    </a>
+</div>
+</section>
+
+<!-- SECCIÓN: RESULTADOS REALES: ESTRATEGIA Y AHORRO -->
+<section id="casos" style="padding: 40px 20px; font-family: sans-serif; background-color: #ffffff; text-align: center;">
+    <h2 style="color: #1d4099; margin-bottom: 30px;">Resultados Reales: Estrategia y Ahorro</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
+        
+        <!-- CASO 1: AHORRO DE ALTO IMPACTO -->
+        <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 5px solid #1d4099; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <p style="font-size: 15px; color: #1a1a1a; line-height: 1.6; margin-bottom: 15px;">
+                <strong>Auditoría de Alto Riesgo:</strong> Un vehículo aparentemente en buen estado ocultaba $900 en multas acumuladas y tasas de años anteriores no pagadas. Evitamos que nuestro cliente asumiera esta deuda.
+            </p>
+            <p style="font-size: 14px; font-weight: bold; color: #1d4099; margin: 0;">— Resultado: Ahorro directo de $900 Auditoria #VF-2026-002</p>
+        </div>
+
+        <!-- CASO 2: NEGOCIACIÓN TÉCNICA -->
+        <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 5px solid #1d4099; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <p style="font-size: 15px; color: #1a1a1a; line-height: 1.6; margin-bottom: 15px;">
+                <strong>Negociación Estratégica:</strong> Detectamos riesgos técnicos en la RTV. Presentamos nuestro dictamen al vendedor y el cliente logró una rebaja de $400 en el precio final para cubrir mantenimiento preventivo.
+            </p>
+            <p style="font-size: 14px; font-weight: bold; color: #1d4099; margin: 0;">— Auditoría #VF-2026-008</p>
+        </div>
+
+        <!-- CASO 3: SEGURIDAD LEGAL -->
+        <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 5px solid #1d4099; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <p style="font-size: 15px; color: #1a1a1a; line-height: 1.6; margin-bottom: 15px;">
+                <strong>Blindaje Legal:</strong> Evitamos que un cliente comprara un vehículo con un juicio por coactiva vigente que no aparecía en los registros básicos. Un problema legal resuelto antes de firmar.
+            </p>
+            <p style="font-size: 14px; font-weight: bold; color: #1d4099; margin: 0;">— Auditoría #VF-2026-005</p>
+        </div>
+    </div>
+</section>
+
+<!-- Guía de Compra -->
+<section id="Guia de Compra" style="background: #ffffff; padding: 80px 20px; text-align: center; border-top: 1px solid #e2e8f0; font-family: sans-serif;">
+    
+    <h2 style="color: #1d4099; margin-bottom: 20px; font-size: 2rem;">¿Tienes dudas sobre el proceso legal? ⚖️</h2>
+    
+    <p style="color: #4a5568; max-width: 600px; margin: 0 auto 30px auto; line-height: 1.6; font-size: 1.1rem;">
+        No te arriesgues al comprar un vehículo. Hemos preparado una guía detallada sobre gravámenes, multas y prohibiciones para que realices una compra segura y transparente. ✅
+    </p>
+    
+    <a href="Guia/index3.html" 
+       style="background: #1d4099; color: white; padding: 16px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; box-shadow: 0 8px 15px rgba(29, 64, 153, 0.2); transition: transform 0.2s;">
+        <i class="fa-solid fa-book" style="margin-right: 10px;"></i> Leer Guía de Compra Segura
+    </a>
+</section>
+
+<!-- Enlace a VerifiCar Plus -->
+<section style="text-align: center; padding: 60px 20px; background: #ffffff;">
+    <h3 style="color: #1d4099; margin-bottom: 15px; font-size: 1.6rem;">
+        ¿Administras un negocio de alimentos? 🍕
+    </h3>
+    <p style="color: #1a1a1a; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+        Ahora que conoces el historial de tu vehículo, optimiza la gestión de tu restaurante con nuestra solución digital. 📈 ¡Es hora de digitalizar tus pedidos!
+    </p>
+    
+    <a href="https://plus.verificarecuador.com" 
+       style="display: inline-flex; align-items: center; gap: 10px; background: #1d4099; color: white; padding: 18px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 10px 15px rgba(29, 64, 153, 0.3); transition: transform 0.3s;">
+       
+       <i class="fa-solid fa-rocket"></i> Ir a VerifiCar Plus 🚀
+    </a>
+</section>
+
+    <!-- LÓGICA DE WHATSAPP -->
+    <script>
+    function ejecutarConsulta() {
+        const numero = "593992661432"; 
+        const placa = document.getElementById('placa').value.trim().toUpperCase();
+
+        if (placa.length < 7) {
+            alert("Por favor, ingresa una placa válida.");
+            return;
+        }
+
+        // Estructura nueva para obligar al navegador a leer texto nuevo
+        const mensaje = `Hola VerifiCar Ecuador, deseo consultar el Reporte de Historial Vehicular sobre la placa: ${placa}. Sé que el costo es de $5.00 y me gustaría recibir los datos de cuenta o código Deuna para realizar el pago e iniciar la consulta.`;
+        
+        window.open("https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje), '_blank');
+    }
+
+       function formatearPlaca(input) {
+    // 1. Obtener el valor actual
+    let valor = input.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+
+    // 2. Separar en letras (primeras 3) y números (siguientes 4)
+    let letras = valor.slice(0, 3).replace(/[^A-Z]/g, ''); // Solo letras
+    let numeros = valor.slice(3, 7).replace(/[^0-9]/g, ''); // Solo números
+
+    // 3. Reconstruir con guion solo si ya hay algo escrito en la segunda parte
+    if (valor.length > 3) {
+        valor = letras + '-' + numeros;
+    } else {
+        valor = letras;
+    }
+
+    // 4. Aplicar al input
+    input.value = valor.slice(0, 8);
+}
+
+    </script>
+
+
+<!-- SECCIÓN DE CIERRE Y CONTACTO INTEGRADA -->
+<section id="contacto" style="text-align: center; padding: 80px 20px; background: linear-gradient(180deg, #ffffff 0%, #f4f7f6 100%); border-top: 1px solid #e0e0e0; font-family: sans-serif;">
+    
+    <h3 style="color: #1d4099; font-size: 1.8rem; margin-bottom: 15px;">¿Listo para asegurar tu compra? 🛡️</h3>
+    
+    <p style="color: #1a1a1a; font-size: 1.1rem; max-width: 500px; margin: 0 auto 30px auto; line-height: 1.6;">
+        Obtén el historial legal y multas de cualquier vehículo hoy mismo. 🔍 ¿Tienes dudas? Estamos aquí para ayudarte.
+    </p>
+    
+    <!-- Botón Principal -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+        <a href="#inicio" style="background-color: #25D366; color: white; padding: 18px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; box-shadow: 0 10px 15px rgba(37, 211, 102, 0.3);">
+            Consultar placa ahora 🚀
+        </a>
+        
+        <!-- Enlace secundario -->
+        <a href="https://wa.me/593992661432?text=Hola%20VerifiCar%20Ecuador,%20tengo%20una%20duda" target="_blank" style="color: #1d4099; font-weight: 600; text-decoration: underline; font-size: 0.9rem;">
+            💬 o chatea con nosotros por WhatsApp
+        </a>
+    </div>
+</section>
+
+
+
+
+<script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function formatearPlaca(input) {
+            let valor = input.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+            if (valor.length > 3) {
+                valor = valor.slice(0, 3) + '-' + valor.slice(3);
+            }
+            input.value = valor;
+        }
+
+        function enviarAWhatsApp() {
+            const placa = document.getElementById('placa').value;
+            if (placa.length < 7) {
+                alert("Por favor, ingresa una placa válida.");
+                return;
+            }
+            const mensaje = encodeURIComponent("Hola VerifiCar Ecuador, deseo consultar el reporte legal de la placa: " + placa);
+            window.open("https://wa.me/593992661432?text=" + mensaje, "_blank");
+        }
+
+function toggleVerificarMenu() {
+    const menu = document.getElementById('verificar-modal-menu');
+    const title = document.getElementById('verificar-float-title');
+    
+    if (menu.style.display === 'none' || menu.style.display === '') {
+        menu.style.display = 'block';
+        title.style.opacity = '0'; // Se oculta al abrir el menú
+        title.style.pointerEvents = 'none';
+    } else {
+        menu.style.display = 'none';
+        title.style.opacity = '1'; // Vuelve a aparecer al cerrar el menú
+        title.style.pointerEvents = 'auto';
+    }
+}
+
+
+</script>
+
+<footer style="width: 100%; padding: 60px 20px; color: #555; font-size: 0.95em; border-top: 3px solid #1d4099; margin-top: 60px; background-color: #f4f4f4; display: flex; flex-direction: column; align-items: center; text-align: center; box-sizing: border-box;">
+    <div style="width: 100%; max-width: 600px;">
+        <!-- Branding + Eslogan Unificador -->
+        <p style="margin: 0 0 5px 0; font-size: 1.5em; color: #1d4099; font-weight: 800;">VerifiCar | Ecuador</p>
+        <p style="margin: 0 0 25px 0; font-style: italic; color: #4a5568;">"Datos que precisan, resultados que aceleran."</p>
+
+        <!-- Sección de Publicidad Cruzada (PLUS) -->
+        <div style="margin: 20px auto 40px auto; padding: 20px; background: #ffffff; border-radius: 15px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.03);">
+            <p style="margin: 0 0 10px 0; font-weight: bold; color: #1a1a1a;">¿Tienes un negocio gastronómico?</p>
+            <a href="https://plus.verificarecuador.com" style="color: #25d366; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center;">
+                Descubre VerifiCar Plus <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 6px; font-size: 0.8em;"></i>
+            </a>
+        </div>
+
+        <p style="margin: 0 0 20px 0;">"En VerifiCar Ecuador no entregamos datos, entregamos dictámenes auditados que te dicen exactamente qué hacer para comprar seguro y ahorrar dinero."</p>
+        <p style="margin: 10px 0;">¿Consultas? Escríbenos a: <br>
+            <a href="mailto:contacto@verificarecuador.com" style="color: #1d4099; font-weight: bold; text-decoration: none; font-size: 1.1em;">contacto@verificarecuador.com</a>
+        </p>
+
+        <!-- Redes y Privacidad -->
+        <div style="margin: 20px 0;">
+            <a href="https://www.facebook.com/VerifiCarEcuador/" title="Visítanos en Facebook" style="text-decoration: none; color: #1877F2; display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: #fff; border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <i class="fa-brands fa-facebook" style="font-size: 1.5rem;"></i>
+                <span style="font-weight: bold; color: #1d4099;">VerifiCarEcuador</span>
+            </a>
+        </div>
+        
+        <p style="margin: 25px 0; color: #777; line-height: 1.6; padding: 0 20px;">
+            <i class="fa-solid fa-lock" style="margin-right: 8px;"></i>Confidencialidad garantizada en la gestión de tu reporte.
+        </p>
+
+        <!-- Aviso Legal -->
+        <p style="margin-top: 30px; font-size: 0.8em; color: #777; line-height: 1.4; text-align: justify; border-top: 1px solid #ddd; padding-top: 20px;">
+            <strong>Aviso Legal:</strong> Este servicio es de carácter informativo, basado en bases de datos públicas (SRI, ANT, municipios). VerifiCar Ecuador actúa como intérprete de la información y no es responsable de modificaciones posteriores, estado mecánico oculto o validez contractual. El uso de la información es responsabilidad exclusiva del usuario.
+        </p>
+
+        <!-- Footer Copyright -->
+        <div style="margin-top: 30px; text-align: center; font-size: 13px; color: #777;">
+            <p style="margin: 5px 0;">&copy; 2026 VerifiCar Ecuador. Todos los derechos reservados.</p>
+            <i class="fa-solid fa-location-dot" style="color: #e53e3e; margin-right: 5px;"></i> Operado desde <strong>Cuenca, Ecuador</strong>.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- ========================================== -->
+<!-- 1. BOTÓN FLOTANTE DE WHATSAPP (ABAJO)       -->
+<!-- ========================================== -->
+<a href="https://wa.me/593992661432?text=Hola,%20verifiCar%20Ecuador%20quiero%20consultar%20sobre%20el%20reporte%20de%20un%20vehículo" 
+   target="_blank" 
+   style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; width: 55px; height: 55px; border-radius: 50%; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease, box-shadow 0.2s ease;"
+   onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 16px rgba(37, 211, 102, 0.4)';" 
+   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.3)';"
+   title="Escríbenos por WhatsApp">
+   
+   <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.075-.149-.67-1.612-.916-2.207-.242-.579-.487-.5-1.612-.5-.074 0-.148 0-.222 0-.223 0-.585.084-.891.417-.306.333-1.167 1.139-1.167 2.781 0 1.642 1.194 3.229 1.359 3.442.164.213 2.277 3.518 5.517 4.935.772.333 1.375.532 1.846.68.775.247 1.48.212 2.039.129.622-.093 1.916-.784 2.184-1.542.268-.758.268-1.408.185-1.542-.083-.133-.306-.213-.603-.362zM12 0C5.373 0 0 5.373 0 12c0 2.115.556 4.185 1.615 6L0 24l6.234-1.597C8.038 23.398 9.98 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.815c-1.745 0-3.456-.467-4.945-1.348l-.354-.21-3.674.937 1.01-3.582-.23-.374c-.97-1.58-1.482-3.408-1.482-5.264 0-5.594 4.555-10.149 10.149-10.149 5.595 0 10.15 4.555 10.15 10.149 0 5.594-4.555 10.149-10.15 10.149z"/>
+   </svg> 
+</a>
+
+
+<!-- ========================================== -->
+<!-- 2. BOTÓN REDONDO DE LA APP (ARRIBA DE WSP)  -->
+<!-- ========================================== -->
+<div style="position: fixed; bottom: 85px; right: 20px; z-index: 9999; display: flex; flex-direction: column; align-items: center; font-family: sans-serif; width: 55px;">
+    
+    <!-- ETIQUETA COMPACTA "APP" CENTRADA -->
+    <div style="background: linear-gradient(135deg, #0f172a, #1e293b); color: #38bdf8; padding: 3px 8px; border-radius: 6px; font-size: 0.65rem; font-weight: bold; border: 1px solid #334155; box-shadow: 0 2px 8px rgba(0,0,0,0.4); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; text-align: center; white-space: nowrap;">
+        APP
+    </div>
+
+    <!-- BOTÓN REDONDO PRINCIPAL DE LA APP -->
+    <a href="interpretacion/index2.html" 
+       style="text-decoration: none; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #ffffff; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.2s ease, box-shadow 0.2s ease;" 
+       onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 16px rgba(37, 99, 235, 0.5)';" 
+       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.3)';"
+       title="Abrir VerifiCar App">
+        📱
+    </a>
+
+</div>
+
+</body>
+</html>

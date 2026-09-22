@@ -1,0 +1,29 @@
+{
+  "name": "VerifiCar Ecuador",
+  "short_name": "VerifiCar Ecuador",
+  "start_url": "/interpretacion/index2.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/img/logo-app.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/logo-app-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+"splash_screens": [
+    {
+      "src": "/img/splash-screen.png", 
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}
