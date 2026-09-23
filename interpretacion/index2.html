@@ -15,7 +15,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-   
+     <script>  const firebaseConfig = {
+        apiKey: "AIzaSyBIWkaBYXpyCf73Iq4Ab0fr2lhjjinNOYY",
+        authDomain: "verificar-ecuador.firebaseapp.com",
+        databaseURL: "https://verificar-ecuador-default-rtdb.firebaseio.com",
+        projectId: "verificar-ecuador",
+        storageBucket: "verificar-ecuador.firebasestorage.app",
+        messagingSenderId: "874669874460",
+        appId: "1:874669874460:web:d9ea80035d37246424aed9",
+        measurementId: "G-KSM26HT05R"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.database();
+ </script>
     
     <style>
         :root {
@@ -806,19 +819,6 @@
             }
         });
 
- const firebaseConfig = {
-        apiKey: "AIzaSyBIWkaBYXpyCf73Iq4Ab0fr2lhjjinNOYY",
-        authDomain: "verificar-ecuador.firebaseapp.com",
-        databaseURL: "https://verificar-ecuador-default-rtdb.firebaseio.com",
-        projectId: "verificar-ecuador",
-        storageBucket: "verificar-ecuador.firebasestorage.app",
-        messagingSenderId: "874669874460",
-        appId: "1:874669874460:web:d9ea80035d37246424aed9",
-        measurementId: "G-KSM26HT05R"
-      };
-
-      firebase.initializeApp(firebaseConfig);
-      const db = firebase.database();
 
         
 // ==========================================
