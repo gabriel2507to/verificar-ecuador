@@ -6,12 +6,32 @@
      <link rel="icon" type="image/x-icon" href="../favicon.ico?v=2">
      <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
      <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificar Ecuador - Tu Asesor de Seguridad Vehicular</title>
     <!-- Tailwind CSS para diseño moderno -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyBIWkaBYXpyCf73Iq4Ab0fr2lhjjinNOYY",
+        authDomain: "verificar-ecuador.firebaseapp.com",
+        databaseURL: "https://verificar-ecuador-default-rtdb.firebaseio.com",
+        projectId: "verificar-ecuador",
+        storageBucket: "verificar-ecuador.firebasestorage.app",
+        messagingSenderId: "874669874460",
+        appId: "1:874669874460:web:d9ea80035d37246424aed9",
+        measurementId: "G-KSM26HT05R"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.database();
+    </script>
+
+    
     <style>
         :root {
             --primary-blue: #1d4099;
@@ -515,7 +535,7 @@
         <div class="flex items-center justify-between bg-slate-950 px-3 py-2 rounded-lg border border-slate-800">
             <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">✨ Minuta Generada con Éxito</span>
             <button onclick="cerrarResultadoContrato()" class="text-slate-400 hover:text-white text-xs px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 transition flex items-center gap-1">
-                <i class="fa-solid fa-xmark"></i> ❌ Cerrar minuta
+                <i class="fa-solid fa-xmark"></i>❌Cerrar minuta
             </button>
         </div>
 
@@ -801,110 +821,124 @@
             }
         });
 
-        // FUNCIONES PARA EL RADAR DE PATIOS DINÁMICO
-        function cargarRadarPatios() {
-            let patios = JSON.parse(localStorage.getItem('radarPatiosApp')) || [];
-            const contenedor = document.getElementById('listaRadarPatios');
-            
-            if(patios.length === 0) {
-                contenedor.innerHTML = `
-                    <div class="bg-slate-50 p-2.5 rounded-lg border border-red-200 flex justify-between items-center">
-                        <div>
-                            <p class="font-bold text-red-600">Patio de Autos (Ejemplo)</p>
-                            <p class="text-[10px] text-slate-500">Reportado por retraso de papeles</p>
-                        </div>
-                        <span class="bg-red-100 text-red-600 text-[10px] px-2 py-0.5 rounded font-bold">Alerta Roja</span>
-                    </div>`;
-                return;
-            }
+// ==========================================
+// 1. CARGAR Y ESCUCHAR EL RADAR DE PATIOS EN TIEMPO REAL
+// ==========================================
+function cargarRadarPatios() {
+    const contenedor = document.getElementById('listaRadarPatios');
+    
+    // on('value', ...) escucha en tiempo real cualquier cambio en la base de datos
+    db.ref('radarPatiosApp').on('value', (snapshot) => {
+        const data = snapshot.val();
+        let patios = data ? Object.keys(data).map(key => ({ id: key, ...data[key] })) : [];
 
-            contenedor.innerHTML = '';
-            patios.forEach((p, index) => {
-                let estiloBorde = p.nivel === 'rojo' ? 'border-red-200' : 'border-amber-200';
-                let estiloTexto = p.nivel === 'rojo' ? 'text-red-600' : 'text-amber-600';
-                let estiloBadge = p.nivel === 'rojo' ? 'bg-red-100 text-red-600' : 'bg-amber-100 text-amber-700';
-                let textoBadge = p.nivel === 'rojo' ? 'Alerta Roja' : 'Precaución';
-
-                contenedor.innerHTML += `
-                    <div class="bg-slate-50 p-2.5 rounded-lg border ${estiloBorde} flex justify-between items-center relative group">
-                        <div>
-                            <p class="font-bold ${estiloTexto}">${p.nombre}</p>
-                            <p class="text-[10px] text-slate-500">${p.motivo}</p>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <span class="${estiloBadge} text-[10px] px-2 py-0.5 rounded font-bold">${textoBadge}</span>
-                            <button onclick="eliminarPatioIndividual(${index})" class="text-slate-400 hover:text-red-500 text-xs px-1" title="Eliminar este reporte">×</button>
-                        </div>
-                    </div>`;
-            });
+        if(patios.length === 0) {
+            contenedor.innerHTML = `
+                <div class="bg-slate-50 p-2.5 rounded-lg border border-red-200 flex justify-between items-center">
+                    <div>
+                        <p class="font-bold text-red-600">Patio de Autos (Ejemplo)</p>
+                        <p class="text-[10px] text-slate-500">Reportado por retraso de papeles</p>
+                    </div>
+                    <span class="bg-red-100 text-red-600 text-[10px] px-2 py-0.5 rounded font-bold">Alerta Roja</span>
+                </div>`;
+            return;
         }
 
-        function agregarPatioAdmin() {
-            const nombre = document.getElementById('adminNombrePatio').value.trim();
-            const motivo = document.getElementById('adminMotivoPatio').value.trim();
-            const nivel = document.getElementById('adminNivelAlerta').value;
+        contenedor.innerHTML = '';
+        // Firebase devuelve los elementos ordenados por clave, invertimos o recorremos
+        patios.forEach((p) => {
+            let estiloBorde = p.nivel === 'rojo' ? 'border-red-200' : 'border-amber-200';
+            let estiloTexto = p.nivel === 'rojo' ? 'text-red-600' : 'text-amber-600';
+            let estiloBadge = p.nivel === 'rojo' ? 'bg-red-100 text-red-600' : 'bg-amber-100 text-amber-700';
+            let textoBadge = p.nivel === 'rojo' ? 'Alerta Roja' : 'Precaución';
 
-            if(!nombre || !motivo) {
-                alert("Por favor llena el nombre del patio y el motivo.");
-                return;
-            }
+            contenedor.innerHTML += `
+                <div class="bg-slate-50 p-2.5 rounded-lg border ${estiloBorde} flex justify-between items-center relative group">
+                    <div>
+                        <p class="font-bold ${estiloTexto}">${p.nombre}</p>
+                        <p class="text-[10px] text-slate-500">${p.motivo}</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="${estiloBadge} text-[10px] px-2 py-0.5 rounded font-bold">${textoBadge}</span>
+                        <button onclick="eliminarPatioIndividual('${p.id}')" class="text-slate-400 hover:text-red-500 text-xs px-1" title="Eliminar este reporte">×</button>
+                    </div>
+                </div>`;
+        });
+    });
+}
 
-            let patios = JSON.parse(localStorage.getItem('radarPatiosApp')) || [];
-            patios.unshift({ nombre, motivo, nivel });
-            localStorage.setItem('radarPatiosApp', JSON.stringify(patios));
+function agregarPatioAdmin() {
+    const nombre = document.getElementById('adminNombrePatio').value.trim();
+    const motivo = document.getElementById('adminMotivoPatio').value.trim();
+    const nivel = document.getElementById('adminNivelAlerta').value;
 
+    if(!nombre || !motivo) {
+        alert("Por favor llena el nombre del patio y el motivo.");
+        return;
+    }
+
+    // Guardar usando push() genera un ID único automático en Firebase
+    db.ref('radarPatiosApp').push({ nombre, motivo, nivel })
+        .then(() => {
             document.getElementById('adminNombrePatio').value = '';
             document.getElementById('adminMotivoPatio').value = '';
-
-            cargarRadarPatios();
             alert("¡Patio publicado con éxito en el Radar!");
-        }
+        })
+        .catch((error) => {
+            alert("Error al guardar: " + error.message);
+        });
+}
 
-        function eliminarPatioIndividual(index) {
-            let patios = JSON.parse(localStorage.getItem('radarPatiosApp')) || [];
-            patios.splice(index, 1);
-            localStorage.setItem('radarPatiosApp', JSON.stringify(patios));
-            cargarRadarPatios();
-        }
+function eliminarPatioIndividual(id) {
+    if(confirm("¿Estás seguro de eliminar este reporte del radar?")) {
+        db.ref('radarPatiosApp/' + id).remove();
+    }
+}
 
-        function limpiarRadarAdmin() {
-            if(confirm("¿Vaciar todo el radar de patios?")) {
-                localStorage.removeItem('radarPatiosApp');
-                cargarRadarPatios();
-            }
-        }
+function limpiarRadarAdmin() {
+    if(confirm("¿Vaciar todo el radar de patios?")) {
+        db.ref('radarPatiosApp').remove();
+    }
+}
 
-        const CLAVE_SECRETA_ADMIN = "2507";
 
-        function verificarClaveAdmin() {
-            if (localStorage.getItem("adminVerificado") === "true") {
-                mostrarPanelAdmin();
-                toggleSeccion('seccionRadar');
-                return;
-            }
+// ==========================================
+// 2. AUTENTICACIÓN ADMIN
+// ==========================================
+const CLAVE_SECRETA_ADMIN = "2507";
 
-            let ingreso = prompt("⚙️ Acceso de Administrador. Ingrese clave:");
-            if (ingreso === CLAVE_SECRETA_ADMIN) {
-                localStorage.setItem("adminVerificado", "true");
-                mostrarPanelAdmin();
-                toggleSeccion('seccionRadar');
-                alert("¡Acceso concedido! El panel de edición se ha desbloqueado en el Radar.");
-            } else if (ingreso !== null) {
-                alert("Contraseña incorrecta.");
-            }
-        }
+function verificarClaveAdmin() {
+    if (localStorage.getItem("adminVerificado") === "true") {
+        mostrarPanelAdmin();
+        toggleSeccion('seccionRadar');
+        return;
+    }
 
-        function mostrarPanelAdmin() {
-            document.getElementById('adminPanelContenido').classList.remove('hidden');
-        }
+    let ingreso = prompt("⚙️ Acceso de Administrador. Ingrese clave:");
+    if (ingreso === CLAVE_SECRETA_ADMIN) {
+        localStorage.setItem("adminVerificado", "true");
+        mostrarPanelAdmin();
+        toggleSeccion('seccionRadar');
+        alert("¡Acceso concedido! El panel de edición se ha desbloqueado en el Radar.");
+    } else if (ingreso !== null) {
+        alert("Contraseña incorrecta.");
+    }
+}
 
-        function cerrarSesionAdmin() {
-            localStorage.removeItem("adminVerificado");
-            document.getElementById('adminPanelContenido').classList.add('hidden');
-            alert("Sesión de administrador cerrada.");
-        }
+function mostrarPanelAdmin() {
+    document.getElementById('adminPanelContenido').classList.remove('hidden');
+}
 
-// Función para guardar y cambiar el texto y color del banner desde el admin
+function cerrarSesionAdmin() {
+    localStorage.removeItem("adminVerificado");
+    document.getElementById('adminPanelContenido').classList.add('hidden');
+    alert("Sesión de administrador cerrada.");
+}
+
+
+// ==========================================
+// 3. BANNER DINÁMICO EN TIEMPO REAL
+// ==========================================
 function actualizarBannerAdmin() {
     const nuevoTexto = document.getElementById('adminTextoAlerta').value.trim();
     const nuevoColor = document.getElementById('adminColorBanner').value;
@@ -914,15 +948,24 @@ function actualizarBannerAdmin() {
         return;
     }
     
-    // Guardamos en localStorage
-    localStorage.setItem('mensajeBannerApp', nuevoTexto);
-    localStorage.setItem('colorBannerApp', nuevoColor);
-    
-    // Lo aplicamos de inmediato
-    aplicarPersonalizacionBanner(nuevoTexto, nuevoColor);
-    
-    document.getElementById('adminTextoAlerta').value = '';
-    alert("¡Banner superior y color actualizados con éxito!");
+    // Guardamos en Firebase para que se actualice en todos los navegadores
+    db.ref('configuracionBanner').set({
+        texto: nuevoTexto,
+        color: nuevoColor
+    }).then(() => {
+        document.getElementById('adminTextoAlerta').value = '';
+        alert("¡Banner superior y color actualizados con éxito!");
+    });
+}
+
+// Escuchar cambios del banner en tiempo real al cargar la app
+function escucharBannerEnVivo() {
+    db.ref('configuracionBanner').on('value', (snapshot) => {
+        const config = snapshot.val();
+        if (config) {
+            aplicarPersonalizacionBanner(config.texto, config.color);
+        }
+    });
 }
 
 function aplicarPersonalizacionBanner(texto, claseColor) {
@@ -931,13 +974,18 @@ function aplicarPersonalizacionBanner(texto, claseColor) {
     
     if (spanAlerta && banner) {
         spanAlerta.textContent = texto;
-        
-        // Mantenemos siempre las clases de centrado y diseño, y solo cambiamos el color al final
         banner.className = "text-white px-4 py-2 text-xs font-semibold relative flex items-center justify-center shadow-inner transition-colors duration-300 " + claseColor;
-        
-        banner.style.display = 'flex'; // Asegura que se muestre
+        banner.style.display = 'flex';
     }
 }
+
+// Ejecutar al iniciar la página
+window.addEventListener('DOMContentLoaded', () => {
+    cargarRadarPatios();
+    escucharBannerEnVivo();
+});
+
+        
 
 function validarEstructuraChasis() {
     const input = document.getElementById('chasisInput');
@@ -1179,7 +1227,7 @@ function generarContratoProTotal() {
 
     if (!cajaResultado || !textoContrato) return;
 
-    const minutaPro = `CONTRATO DE COMPRAVENTA DE VEHÍCULO AUTOMOTOR CON CLÁUSULAS DE SANEAMIENTO, RESPONSABILIDAD Y PENALIDADES
+    const minutaPro = `CONTRATO DE COMPRAVENTA DE VEHÍCULO-VERIICAR ECUADOR.
 
 En la ciudad de ${ciudad}, República del Ecuador, a los ${fecha}, comparecen a la celebración del presente contrato por una parte, el/la señor(a) ${vendedor}, con cédula de ciudadanía número ${cedulaV}, a quien en adelante se le denominará "EL VENDEDOR"; y, por otra parte, el/la señor(a) ${comprador}, con cédula de ciudadanía número ${cedulaC}, a quien en adelante se le denominará "EL COMPRADOR". Los comparecientes, de estado civil e instruidos en el derecho que les asiste, declaran ser plenamente capaces para contratar, obligándose al tenor de las siguientes estipulaciones:
 
@@ -1410,9 +1458,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
 // Variable ya existente arriba, solo reutilízala
-deferredPrompt = null;
+let deferredPrompt = null;
 
 // Capturamos el evento de instalación (por si el navegador lo permite de forma nativa)
 window.addEventListener('beforeinstallprompt', (e) => {
@@ -1447,6 +1494,13 @@ window.addEventListener('appinstalled', () => {
     console.log('VerifiCar PWA fue instalada con éxito.');
 });
 
+// Validar al cargar la página si la app ya está abierta en modo independiente en el celular
+document.addEventListener("DOMContentLoaded", () => {
+    const btnInstalar = document.getElementById('btnInstalar');
+    if (btnInstalar && window.matchMedia('(display-mode: standalone)').matches) {
+        btnInstalar.classList.add('hidden');
+    }
+});
 
 </script>
 
