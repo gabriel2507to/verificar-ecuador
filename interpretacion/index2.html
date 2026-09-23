@@ -15,7 +15,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-     <script>  const firebaseConfig = {
+     <script>  
+        const firebaseConfig = {
         apiKey: "AIzaSyBIWkaBYXpyCf73Iq4Ab0fr2lhjjinNOYY",
         authDomain: "verificar-ecuador.firebaseapp.com",
         databaseURL: "https://verificar-ecuador-default-rtdb.firebaseio.com",
@@ -1458,29 +1459,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Variable ya existente arriba, solo reutilízala
-deferredPrompt = null;
+// Inicializamos la propiedad global de la PWA
+window.deferredPrompt = null;
 
-// Capturamos el evento de instalación (por si el navegador lo permite de forma nativa)
+// Capturamos el evento de instalación
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
-    deferredPrompt = e;
+    window.deferredPrompt = e;
 });
 
 // Acción al hacer clic en tu botón siempre visible
 document.getElementById('btnInstalar').addEventListener('click', async () => {
-    const btnInstalar = document.getElementById('btnInstalar');
-    
     // Si el navegador ya tiene el evento listo, lanzamos el aviso nativo
-    if (deferredPrompt) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
+    if (window.deferredPrompt) {
+        window.deferredPrompt.prompt();
+        const { outcome } = await window.deferredPrompt.userChoice;
         if (outcome === 'accepted') {
             console.log('¡El usuario aceptó instalar la PWA!');
         }
-        deferredPrompt = null;
+        window.deferredPrompt = null;
     } else {
-        // Mensaje de guía por si el usuario está en un navegador o modo donde no se dispara automáticamente
+        // Mensaje de guía por si el navegador o modo no lo dispara automáticamente
         alert("Para instalar la aplicación, abre el menú de opciones de tu navegador (los tres puntitos) y selecciona 'Instalar aplicación' o 'Añadir a la pantalla principal'.");
     }
 });
@@ -1489,7 +1488,7 @@ document.getElementById('btnInstalar').addEventListener('click', async () => {
 window.addEventListener('appinstalled', () => {
     const btnInstalar = document.getElementById('btnInstalar');
     if (btnInstalar) {
-        btnInstalar.classList.add('hidden'); // Aquí se oculta definitivamente
+        btnInstalar.classList.add('hidden');
     }
     console.log('VerifiCar PWA fue instalada con éxito.');
 });
