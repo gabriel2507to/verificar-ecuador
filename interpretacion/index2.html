@@ -1459,7 +1459,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Variable ya existente arriba, solo reutilízala
-let deferredPrompt = null;
+deferredPrompt = null;
 
 // Capturamos el evento de instalación (por si el navegador lo permite de forma nativa)
 window.addEventListener('beforeinstallprompt', (e) => {
