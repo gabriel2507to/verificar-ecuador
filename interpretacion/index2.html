@@ -891,8 +891,17 @@ function agregarPatioAdmin() {
 }
 
 function eliminarPatioIndividual(id) {
+    // Validar de nuevo por seguridad antes de borrar en Firebase
+    if (!window.esAdmin) {
+        alert("Acceso no autorizado.");
+        return;
+    }
+
     if(confirm("¿Estás seguro de eliminar este reporte del radar?")) {
-        db.ref('radarPatiosApp/' + id).remove();
+        db.ref('radarPatiosApp/' + id).remove()
+            .catch((error) => {
+                alert("Error al eliminar: " + error.message);
+            });
     }
 }
 
