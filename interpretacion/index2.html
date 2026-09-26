@@ -626,25 +626,35 @@
             localStorage.setItem('contadorVerificacionesTotal', totalConsultas);
             actualizarContadorUI();
 
-            // Efecto de carga (Feedback) en el botón de WhatsApp
-            const btn = document.getElementById('btnReporte');
-            const textoBtn = document.getElementById('textoBtnReporte');
-            const icono = document.getElementById('iconoWhatsapp');
+          // Obtener el valor de la placa y limpiarlo de espacios
+        const placaInput = document.getElementById('placaInput');
+        const placa = placaInput ? placaInput.value.trim() : '';
 
-            btn.disabled = true;
-            textoBtn.textContent = "Preparando consulta...";
-            icono.className = "fa-solid fa-spinner fa-spin text-lg";
-
-            setTimeout(() => {
-                let mensaje = placa ? `Hola VerifiCar Ecuador, necesito el historial, multas y gravámenes de la placa: ${placa}` : "Hola, quiero solicitar un reporte vehicular.";
-                window.open(`https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`, '_blank');
-                
-                // Restaurar botón
-                btn.disabled = false;
-                textoBtn.textContent = "Solicitar Mi Reporte por WhatsApp";
-                icono.className = "fa-brands fa-whatsapp text-lg";
-            }, 600);
+        // Validar si la placa está vacía
+        if (!placa) {
+            alert('Por favor ingresa una placa antes de solicitar el reporte.');
+            placaInput.focus();
+            return; // Detiene la ejecución para que no abra WhatsApp
         }
+
+        // Efecto de carga (Feedback) en el botón de WhatsApp
+        const btn = document.getElementById('btnReporte');
+        const textoBtn = document.getElementById('textoBtnReporte');
+        const icono = document.getElementById('iconoWhatsapp');
+
+        btn.disabled = true;
+        textoBtn.textContent = "Preparando consulta...";
+        icono.className = "fa-solid fa-spinner fa-spin text-lg";
+
+        setTimeout(() => {
+            let mensaje = `Hola VerifiCar Ecuador, necesito el historial, multas y gravámenes de la placa: ${placa}`;
+            window.open(`https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`, '_blank');
+            
+            // Restaurar botón
+            btn.disabled = false;
+            textoBtn.textContent = "Solicitar Mi Reporte"; // O el texto que tengas en el botón
+            icono.className = "fa-brands fa-whatsapp text-lg";
+        }, 600);
 
         function actualizarContadorUI() {
             let total = localStorage.getItem('contadorVerificacionesTotal') || 0;
