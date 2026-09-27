@@ -905,14 +905,17 @@ function agregarPatioAdmin() {
 }
 
 function eliminarPatioIndividual(id) {
-    // Validar de nuevo por seguridad antes de borrar en Firebase
+    // 🔒 Validación estricta de Administrador
     if (!window.esAdmin) {
-        alert("Acceso no autorizado.");
+        alert("Acceso denegado. No tienes permisos de administrador.");
         return;
     }
 
     if(confirm("¿Estás seguro de eliminar este reporte del radar?")) {
         db.ref('radarPatiosApp/' + id).remove()
+            .then(() => {
+                // Opcional: Feedback visual de éxito
+            })
             .catch((error) => {
                 alert("Error al eliminar: " + error.message);
             });
@@ -920,8 +923,17 @@ function eliminarPatioIndividual(id) {
 }
 
 function limpiarRadarAdmin() {
-    if(confirm("¿Vaciar todo el radar de patios?")) {
-        db.ref('radarPatiosApp').remove();
+    // 🔒 Validación estricta de Administrador
+    if (!window.esAdmin) {
+        alert("Acceso denegado. No tienes permisos de administrador.");
+        return;
+    }
+
+    if(confirm("¿Estás 100% seguro de vaciar todo el radar de patios?")) {
+        db.ref('radarPatiosApp').remove()
+            .catch((error) => {
+                alert("Error al limpiar el radar: " + error.message);
+            });
     }
 }
 
