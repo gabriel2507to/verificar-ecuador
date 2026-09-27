@@ -905,17 +905,14 @@ function agregarPatioAdmin() {
 }
 
 function eliminarPatioIndividual(id) {
-    // 🔒 Validación estricta de Administrador
-    if (!window.esAdmin) {
+    // Validar sesión activa en localStorage
+    if (localStorage.getItem("adminVerificado") !== "true") {
         alert("Acceso denegado. No tienes permisos de administrador.");
         return;
     }
 
     if(confirm("¿Estás seguro de eliminar este reporte del radar?")) {
         db.ref('radarPatiosApp/' + id).remove()
-            .then(() => {
-                // Opcional: Feedback visual de éxito
-            })
             .catch((error) => {
                 alert("Error al eliminar: " + error.message);
             });
@@ -923,8 +920,8 @@ function eliminarPatioIndividual(id) {
 }
 
 function limpiarRadarAdmin() {
-    // 🔒 Validación estricta de Administrador
-    if (!window.esAdmin) {
+    // Validar sesión activa en localStorage
+    if (localStorage.getItem("adminVerificado") !== "true") {
         alert("Acceso denegado. No tienes permisos de administrador.");
         return;
     }
