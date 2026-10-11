@@ -308,30 +308,27 @@ nav {
 </head>
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
-<nav id="navbar" class="fixed top-0 left-0 w-full bg-white border-b border-slate-200 px-6 py-3 z-50 flex justify-between items-center transition-transform duration-300"></nav>
-<nav>
-   <div class="logo">
-    <img src="img/verifiCarlogo.png" alt="VerifiCar Logo" width="500" height="150" loading="lazy">
-</div>
+ <!-- MENÚ DE NAVEGACIÓN COMPACTO -->
+<nav id="navbar" class="fixed top-0 left-0 w-full bg-white border-b border-slate-200 px-6 py-1.5 z-50 flex justify-between items-center transition-transform duration-300">
+    <div class="logo">
+        <img src="img/verifiCarlogo.png" alt="VerifiCar Logo" class="h-7 w-auto object-contain" loading="lazy">
+    </div>
     
     <div class="menu-toggle" onclick="toggleMenu()">
         <i class="fa-solid fa-bars"></i>
     </div>
 
-    <ul class="nav-links" id="navLinks">
+    <ul class="nav-links flex items-center gap-5 text-sm" id="navLinks">
         <li><a href="#inicio" onclick="toggleMenu()">Inicio</a></li>
         <li><a href="#tutoriales" onclick="toggleMenu()">¿Cómo funciona?</a></li>
         <li><a href="#detalles" onclick="toggleMenu()">¿Qué incluye?</a></li>
         <li><a href="#Guia de Compra" onclick="toggleMenu()">Guia de Compra</a></li>
         <li><a href="interpretacion/index2.html" onclick="toggleMenu()" class="text-[var(--primary-blue)] font-bold flex items-center gap-1">
-        <i class="fa-solid fa-mobile-screen-button"></i> App VerifiCar Ecuador
-    </a></li>
+            <i class="fa-solid fa-mobile-screen-button"></i> App VerifiCar Ecuador
+        </a></li>
         <li><a href="#contacto" onclick="toggleMenu()">Contacto</a></li>
-        
     </ul>
 </nav>
-
     <!-- SECCIÓN 1: INICIO -->
  <section id="inicio" style="text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 0 0 40px 40px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
     
