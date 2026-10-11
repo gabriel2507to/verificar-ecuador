@@ -1535,37 +1535,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </script>
 
-    <footer style="width: 100%; padding: 60px 20px; color: #555; font-size: 0.95em; border-top: 3px solid #1d4099; margin-top: 60px; background-color: #f4f4f4; display: flex; flex-direction: column; align-items: center; text-align: center; box-sizing: border-box;">
-        <div style="width: 100%; max-width: 600px;">
-            <p style="margin: 0 0 15px 0; font-size: 1.2em; color: #1a1a1a;"><strong>VerifiCar | Ecuador</strong></p>
-            <p style="margin: 0 0 20px 0;">Reportes vehiculares confiables.</p>
-            <p style="margin: 10px 0;">¿Consultas? Escríbenos a: <br>
-                <a href="mailto:contacto@verificarecuador.com" style="color: #1d4099; font-weight: bold; text-decoration: none; font-size: 1.1em;">contacto@verificarecuador.com</a>
-            </p>
-            <p style="margin: 25px 0; color: #777; line-height: 1.6; padding: 0 20px;">
-                <i class="fa-solid fa-lock" style="margin-right: 8px;"></i>Protegemos tu privacidad: Toda la información proporcionada es confidencial y utilizada exclusivamente para la gestión de tu reporte.
-            </p>
-            <div style="margin: 20px 0;">
-                <a href="https://www.facebook.com/VerifiCarEcuador/" title="Visítanos en Facebook" style="text-decoration: none; color: #1877F2; display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: #fff; border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                    <i class="fa-brands fa-facebook" style="font-size: 1.5rem;"></i>
-                    <span style="font-weight: bold; color: #1d4099;">VerifiCarEcuador</span>
-                </a>
-            </div>
-            
-            <p style="margin-top: 30px; font-size: 0.8em; color: #777; line-height: 1.4; text-align: justify; border-top: 1px solid #ddd; padding-top: 20px;">
-                <strong>Aviso Legal:</strong> Este documento es de carácter estrictamente informativo y ha sido compilado a partir de las bases de datos públicas de acceso libre del SRI, ANT y municipios a la fecha y hora de su emisión. VerifiCar Ecuador no se responsabiliza por modificaciones posteriores en los registros institucionales, la validez de los contratos de compraventa, ni por el estado mecánico oculto del vehículo. El uso de esta información es responsabilidad exclusiva del usuario.
-            </p>
+ Aquí tienes este footer con el enlace a Términos, Condiciones y Políticas de Privacidad (LOPDP) integrado de forma limpia y respetando todo el diseño, el botón de administración ("puerta secreta") y las secciones existentes.
 
-            <p style="margin-top: 20px; font-size: 0.85em; color: #999;">&copy; 2026 VerifiCar. Todos los derechos reservados.</p>
+Código con el enlace integrado (Misma carpeta raíz):
+HTML
+<footer style="width: 100%; padding: 60px 20px; color: #555; font-size: 0.95em; border-top: 3px solid #1d4099; margin-top: 60px; background-color: #f4f4f4; display: flex; flex-direction: column; align-items: center; text-align: center; box-sizing: border-box;">
+    <div style="width: 100%; max-width: 600px;">
+        <p style="margin: 0 0 15px 0; font-size: 1.2em; color: #1a1a1a;"><strong>VerifiCar | Ecuador</strong></p>
+        <p style="margin: 0 0 20px 0;">Reportes vehiculares confiables.</p>
+        <p style="margin: 10px 0;">¿Consultas? Escríbenos a: <br>
+            <a href="mailto:contacto@verificarecuador.com" style="color: #1d4099; font-weight: bold; text-decoration: none; font-size: 1.1em;">contacto@verificarecuador.com</a>
+        </p>
 
-            <!-- PUERTA SECRETA VISIBLE PERO DISCRETA -->
-            <div style="margin-top: 10px;">
-                <button onclick="verificarClaveAdmin()" style="background: none; border: none; color: #ccc; cursor: pointer; font-size: 14px;" title="Configuración">
-                    <i class="fa-solid fa-gear"></i>
-                </button>
-            </div>
+        <p style="margin: 25px 0; color: #777; line-height: 1.6; padding: 0 20px;">
+            <i class="fa-solid fa-lock" style="margin-right: 8px;"></i>Protegemos tu privacidad: Toda la información proporcionada es confidencial y utilizada exclusivamente para la gestión de tu reporte.
+        </p>
+
+        <!-- ENLACE A TÉRMINOS, CONDICIONES Y LOPDP -->
+        <div style="margin: 20px 0;">
+            <a href="index3.html" target="_blank" style="color: #1d4099; font-weight: bold; text-decoration: underline; font-size: 0.9em; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-file-contract"></i> Términos, Condiciones y Políticas de Privacidad (LOPDP)
+            </a>
         </div>
-    </footer>
+
+        <div style="margin: 20px 0;">
+            <a href="https://www.facebook.com/VerifiCarEcuador/" title="Visítanos en Facebook" style="text-decoration: none; color: #1877F2; display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: #fff; border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <i class="fa-brands fa-facebook" style="font-size: 1.5rem;"></i>
+                <span style="font-weight: bold; color: #1d4099;">VerifiCarEcuador</span>
+            </a>
+        </div>
+        
+        <p style="margin-top: 30px; font-size: 0.8em; color: #777; line-height: 1.4; text-align: justify; border-top: 1px solid #ddd; padding-top: 20px;">
+            <strong>Aviso Legal:</strong> Este documento es de carácter strictly informativo y ha sido compilado a partir de las bases de datos públicas de acceso libre del SRI, ANT y municipios a la fecha y hora de su emisión. VerifiCar Ecuador no se responsabiliza por modificaciones posteriores en los registros institucionales, la validez de los contratos de compraventa, ni por el estado mecánico oculto del vehículo. El uso de esta información es responsabilidad exclusiva del usuario.
+        </p>
+
+        <p style="margin-top: 20px; font-size: 0.85em; color: #999;">&copy; 2026 VerifiCar. Todos los derechos reservados.</p>
+
+        <!-- PUERTA SECRETA VISIBLE PERO DISCRETA -->
+        <div style="margin-top: 10px;">
+            <button onclick="verificarClaveAdmin()" style="background: none; border: none; color: #ccc; cursor: pointer; font-size: 14px;" title="Configuración">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+        </div>
+    </div>
+</footer>
 
     <a href="https://wa.me/593992661432?text=Hola,%20verificar%20Ecuador%20quiero%20consultar%20sobre%20el%20reporte%20de%20un%20vehículo" 
        target="_blank" 
