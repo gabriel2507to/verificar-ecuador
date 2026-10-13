@@ -1,18 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
     <!-- Página Principal -->
     <url>
         <loc>https://www.verificarecuador.com/</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-13</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
-    
-    <!-- Guía de Compra Segura -->
+
+    <!-- Centro de Artículos e Índice de Guías -->
+    <url>
+        <loc>https://www.verificarecuador.com/guia/index5.html</loc>
+        <lastmod>2026-10-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Artículos y Guías Individuales -->
     <url>
         <loc>https://www.verificarecuador.com/guia/index4.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://www.verificarecuador.com/guia/minuta-compraventa.html</loc>
+        <lastmod>2026-10-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.verificarecuador.com/guia/multas-ant-emov.html</loc>
+        <lastmod>2026-10-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.verificarecuador.com/guia/estafas-comunes-autos.html</loc>
+        <lastmod>2026-10-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.verificarecuador.com/guia/requisitos-matriculacion-ecuador.html</loc>
+        <lastmod>2026-10-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.verificarecuador.com/guia/contratos-abiertos.html</loc>
+        <lastmod>2026-10-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 </urlset>
