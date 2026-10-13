@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html lang="es-EC">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Artículos y Guías Vehiculares | VerifiCar Ecuador</title>
+
+<meta name="description" content="Centro de guías y artículos sobre compraventa de vehículos usados, gravámenes, multas y trámites legales en Ecuador.">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<style>
+
+:root {
+
+--primary-blue: #1d4099;
+
+--text-dark: #1a1a1a;
+
+--bg-light: #f4f7f6;
+
+--white: #ffffff;
+
+}
+
+
+
+{ box-sizing: border-box; }
+body {
+
+font-family: 'Inter', -apple-system, sans-serif;
+
+margin: 0;
+
+padding: 0;
+
+color: var(--text-dark);
+
+background-color: var(--bg-light);
+
+line-height: 1.6;
+
+}
+
+
+
+/* Menú superior */
+
+nav {
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+padding: 15px 20px;
+
+background: var(--white);
+
+box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+
+position: sticky;
+
+top: 0;
+
+z-index: 1000;
+
+}
+
+.logo img { height: 45px; width: auto; display: block; }
+
+
+
+/* Contenedor principal */
+
+.container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+
+
+.header-seccion { text-align: center; margin-bottom: 40px; }
+
+.header-seccion h1 { color: var(--primary-blue); font-size: 2rem; margin-bottom: 10px; }
+
+.header-seccion p { color: #555; font-size: 1.05rem; margin: 0; }
+
+
+
+/* Grid de Tarjetas / Artículos */
+
+.grid-articulos {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+gap: 25px;
+
+margin-bottom: 50px;
+
+}
+
+
+
+/* Diseño de cada Tarjeta */
+
+.card-articulo {
+
+background: var(--white);
+
+border-radius: 15px;
+
+padding: 30px;
+
+border-left: 5px solid var(--primary-blue);
+
+box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: space-between;
+
+}
+
+
+
+/* Efecto al pasar el mouse por la tarjeta */
+
+.card-articulo:hover {
+
+transform: translateY(-5px);
+
+box-shadow: 0 8px 20px rgba(29, 64, 153, 0.15);
+
+}
+
+
+
+.card-icon {
+
+font-size: 2.2rem;
+
+color: var(--primary-blue);
+
+margin-bottom: 15px;
+
+}
+
+
+
+.card-articulo h2 {
+
+color: var(--primary-blue);
+
+font-size: 1.25rem;
+
+margin: 0 0 12px 0;
+
+}
+
+
+
+.card-articulo p {
+
+color: #555;
+
+font-size: 0.95rem;
+
+margin: 0 0 20px 0;
+
+flex-grow: 1;
+
+}
+
+
+
+.btn-leer {
+
+display: inline-flex;
+
+align-items: center;
+
+gap: 8px;
+
+color: var(--primary-blue);
+
+font-weight: bold;
+
+text-decoration: none;
+
+font-size: 0.95rem;
+
+}
+
+
+
+.btn-leer i { transition: transform 0.2s ease; }
+
+.btn-leer:hover i { transform: translateX(5px); }
+
+
+
+/* Botón de regreso */
+
+.volver-inicio { text-align: center; margin-top: 30px; }
+
+.volver-inicio a {
+
+color: var(--primary-blue);
+
+font-weight: 600;
+
+text-decoration: none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<!-- Navegación -->
+
+<nav>
+
+<div class="logo">
+
+<a href="../index.html"><img src="../img/verifiCarlogo.png" alt="VerifiCar Logo"></a>
+
+</div>
+
+</nav>
+
+
+
+<!-- Sección de Contenido -->
+
+<section class="container">
+
+
+<div class="header-seccion">
+
+<h1>📚 Centro de Artículos Vehiculares</h1>
+
+<p>Aprende a proteger tu dinero, evitar estafas y revisar trámites legales antes de comprar un auto usado en Ecuador.</p>
+
+</div>
+
+
+
+<!-- Rejilla con tus Artículos -->
+
+<div class="grid-articulos">
+
+
+
+<!-- TARJETA 1: Guía de Compra Segura -->
+
+<div class="card-articulo">
+
+<div>
+
+<div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+
+<h2>Guía de Compra Segura en Cuenca</h2>
+
+<p>Aprende a revisar gravámenes, multas de tránsito en la EMOV/ANT y prohibiciones de enajenar antes de dar una seña.</p>
+
+</div>
+
+<a href="index4.html" class="btn-leer">
+
+Leer artículo completo <i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+</div>
+
+
+
+<!-- TARJETA 2: Minutas y Gravámenes -->
+
+<div class="card-articulo">
+
+<div>
+
+<div class="card-icon"><i class="fa-solid fa-file-contract"></i></div>
+
+<h2>Minuta de Compraventa y Embargos</h2>
+
+<p>Claves para redactar tu contrato en notaría, plazos de traspaso y cómo detectar juicios coactivos del dueño anterior.</p>
+
+</div>
+
+<a href="minuta-compraventa.html" class="btn-leer">
+
+Leer artículo completo <i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+</div>
+
+
+
+<!-- TARJETA 3: Multas Ocultas ANT y EMOV -->
+
+<div class="card-articulo">
+
+<div>
+
+<div class="card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+
+<h2>Multas Ocultas en la ANT y EMOV</h2>
+
+<p>Descubre cómo las infracciones y fotomultas se heredan con la placa y cómo evitar asumirlas antes de cerrar el trato.</p>
+
+</div>
+
+<a href="multas-ant-emov.html" class="btn-leer">
+
+Leer artículo completo <i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+</div>
+
+
+
+<!-- TARJETA 4: Estafas Comunes -->
+
+<div class="card-articulo">
+
+<div>
+
+<div class="card-icon"><i class="fa-solid fa-user-secret"></i></div>
+
+<h2>Las 4 Estafas Más Comunes</h2>
+
+<p>Identifica intermediarios con falsos poderes, vehículos clonados y contratos de arras informales que ponen en riesgo tu dinero.</p>
+
+</div>
+
+<a href="estafas-comunes-autos.html" class="btn-leer">
+
+Leer artículo completo <i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+</div>
+
+
+
+<!-- TARJETA 5: Requisitos de Matriculación -->
+
+<div class="card-articulo">
+
+<div>
+
+<div class="card-icon"><i class="fa-solid fa-calendar-days"></i></div>
+
+<h2>Requisitos de Matriculación en Ecuador</h2>
+
+<p>Conoce el calendario obligatorio por último dígito de placa, pagos de rodaje y la inspección técnica vehicular sin contratiempos.</p>
+
+</div>
+
+<a href="requisitos-matriculacion-ecuador.html" class="btn-leer">
+
+Leer artículo completo <i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+</div>
+
+
+
+<!-- TARJETA 6: Contratos Abiertos y Terceros Dueños -->
+
+<div class="card-articulo">
+
+<div>
+
+<div class="card-icon"><i class="fa-solid fa-file-signature"></i></div>
+
+<h2>Contratos Abiertos y Terceros Dueños</h2>
+
+<p>Descubre los riesgos legales de comprar un vehículo con cadenas de dueños anteriores y por qué debes evitar intermediarios sin traspaso directo.</p>
+
+</div>
+
+<a href="contratos-abiertos.html" class="btn-leer">
+
+Leer artículo completo <i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+</div>
+
+
+
+
+</div>
+
+
+
+<!-- Botón Volver al inicio general -->
+
+<div class="volver-inicio">
+
+<a href="../index.html">
+
+<i class="fa-solid fa-arrow-left"></i> Volver a la página principal
+
+</a>
+
+</div>
+
+
+
+</section>
+
+
+
+<!-- Footer Corporativo -->
+
+<footer style="width: 100%; padding: 60px 20px; color: #555; font-size: 0.95em; border-top: 3px solid #1d4099; margin-top: 60px; background-color: #f4f4f4; display: flex; flex-direction: column; align-items: center; text-align: center; box-sizing: border-box;">
+
+<div style="width: 100%; max-width: 600px;">
+
+<p style="margin: 0 0 15px 0; font-size: 1.2em; color: #1a1a1a;"><strong>VerifiCar | Ecuador</strong></p>
+
+<p style="margin: 0 0 20px 0;">Reportes vehiculares confiables.</p>
+
+<p style="margin: 10px 0;">¿Consultas? Escríbenos a: <br>
+
+<a href="mailto:contacto@verificarecuador.com" style="color: #1d4099; font-weight: bold; text-decoration: none; font-size: 1.1em;">contacto@verificarecuador.com</a>
+
+</p>
+
+<p style="margin: 25px 0; color: #777; line-height: 1.6; padding: 0 20px;">
+
+<i class="fa-solid fa-lock" style="margin-right: 8px;"></i>Protegemos tu privacidad: Toda la información proporcionada es confidencial.
+
+</p>
+
+<div style="margin: 20px 0;">
+
+<a href="https://www.facebook.com/VerifiCarEcuador/" title="Visítanos en Facebook" style="text-decoration: none; color: #1877F2; display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: #fff; border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+
+<i class="fa-brands fa-facebook" style="font-size: 1.5rem;"></i>
+
+<span style="font-weight: bold; color: #1d4099;">VerifiCarEcuador</span>
+
+</a>
+
+</div>
+
+<p style="margin-top: 20px; font-size: 0.85em; color: #999;">&copy; 2026 VerifiCar. Todos los derechos reservados.</p>
+
+</div>
+
+</footer>
+
+
+
+<!-- Botón Flotante WhatsApp -->
+
+<a href="https://wa.me/593992661432?text=Hola,%20VerifiCar%20Ecuador%20revisé%20el%20centro%20de%20artículos%20y%20necesito%20ayuda"
+
+target="_blank"
+
+style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 12px 18px; border-radius: 30px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1000; font-family: sans-serif; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+
+<svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.075-.149-.67-1.612-.916-2.207-.242-.579-.487-.5-1.612-.5-.074 0-.148 0-.222 0-.223 0-.585.084-.891.417-.306.333-1.167 1.139-1.167 2.781 0 1.642 1.194 3.229 1.359 3.442.164.213 2.277 3.518 5.517 4.935.772.333 1.375.532 1.846.68.775.247 1.48.212 2.039.129.622-.093 1.916-.784 2.184-1.542.268-.758.268-1.408.185-1.542-.083-.133-.306-.213-.603-.362zM12 0C5.373 0 0 5.373 0 12c0 2.115.556 4.185 1.615 6L0 24l6.234-1.597C8.038 23.398 9.98 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.815c-1.745 0-3.456-.467-4.945-1.348l-.354-.21-3.674.937 1.01-3.582-.23-.374c-.97-1.58-1.482-3.408-1.482-5.264 0-5.594 4.555-10.149 10.149-10.149 5.595 0 10.15 4.555 10.15 10.149 0 5.594-4.555 10.149-10.15 10.149z"/>
+
+</svg>
+
+WhatsApp
+
+</a>
+
+
+
+</body>
+
+</html>
