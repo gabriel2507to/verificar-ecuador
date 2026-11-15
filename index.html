@@ -391,74 +391,7 @@ nav {
 </section>
 
 
-<!-- BOTÓN PARA ABRIR EL VISOR DE MUESTRA -->
-<div style="text-align: center; margin: 30px auto;">
-    <button onclick="document.getElementById('pdfModal').showModal()" style="background-color: #1d4099; color: white; border: none; padding: 14px 28px; font-size: 1rem; font-weight: bold; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-family: sans-serif; transition: background 0.2s;">
-        📄 Ver ejemplo real de reporte PDF
-    </button>
-</div>
 
-<!-- VENTANA MODAL (POP-UP) CON LA ESTRUCTURA OFICIAL DE TU REPORTE -->
-<dialog id="pdfModal" style="max-width: 680px; width: 92%; padding: 25px; border-radius: 15px; border: none; box-shadow: 0 10px 25px rgba(0,0,0,0.25); font-family: sans-serif; box-sizing: border-box;">
-    
-    <!-- CABECERA DEL MODAL -->
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 2px solid #1d4099; padding-bottom: 10px;">
-        <div>
-            <h3 style="color: #1d4099; margin: 0; font-size: 1.2rem;">VerifiCar Ecuador - Vista Previa</h3>
-            <span style="font-size: 0.75rem; color: #666;">ID Reporte: #VF-2026-DEMO</span>
-        </div>
-        <button onclick="document.getElementById('pdfModal').close()" style="background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #666; line-height: 1;">&times;</button>
-    </div>
-
-    <!-- CONTENIDO BASADO EN LA ESTRUCTURA REAL DE TU PDF -->
-    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; text-align: left; border: 1px solid #cbd5e1;">
-        
-        <!-- DICTAMEN DE AUDITORÍA -->
-        <div style="background: #ecfdf5; border-left: 4px solid #059669; padding: 12px; border-radius: 4px; margin-bottom: 15px;">
-            <span style="font-size: 0.75rem; color: #065f46; font-weight: bold; display: block; margin-bottom: 2px;">ESTADO DE AUDITORÍA:</span>
-            <strong style="color: #065f46; font-size: 0.95rem;">🟢 LIBRE Y SEGURO (Verde)</strong>
-            <p style="margin: 5px 0 0 0; font-size: 0.85rem; color: #047857; font-style: italic;">
-                "Vehículo apto para transferencia. No registra impedimentos para la compra."
-            </p>
-        </div>
-
-        <!-- DATOS GENERALES DEL VEHÍCULO -->
-        <div style="background: white; padding: 12px 15px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 12px; font-size: 0.85rem; color: #334155;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-                <div><strong>Placa:</strong> ABC-1234 (Ejemplo)</div>
-                <div><strong>Año:</strong> 2020</div>
-                <div><strong>Vehículo:</strong> SUV / Particular</div>
-                <div><strong>Matrícula:</strong> Pagada al día</div>
-            </div>
-        </div>
-
-        <!-- RESUMEN DE OBLIGACIONES (ENTIDADES) -->
-        <div style="background: white; padding: 12px 15px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 15px; font-size: 0.85rem; color: #334155;">
-            <p style="margin: 0 0 6px 0; font-weight: bold; color: #1d4099; font-size: 0.8rem; text-transform: uppercase;">Resumen de Verificación Institucional:</p>
-            <div style="border-bottom: 1px solid #f1f5f9; padding: 4px 0; display: flex; justify-content: space-between;">
-                <span>SRI / GAD Provincial:</span> <strong style="color: #059669;">Limpio ($0.00)</strong>
-            </div>
-            <div style="border-bottom: 1px solid #f1f5f9; padding: 4px 0; display: flex; justify-content: space-between;">
-                <span>ANT / EMOV / AMT:</span> <strong style="color: #059669;">Sin multas exigibles</strong>
-            </div>
-            <div style="padding: 4px 0; display: flex; justify-content: space-between;">
-                <span>Función Judicial:</span> <strong style="color: #059669;">Sin restricciones legales</strong>
-            </div>
-        </div>
-
-        <p style="font-size: 0.82rem; color: #4a5568; margin: 0; line-height: 1.4; text-align: center;">
-            Incluye además: <strong>Estrategia de negociación</strong>, recomendaciones para el CUV de la ANT y checklist de inspección física para notaría.
-        </p>
-    </div>
-
-    <!-- BOTÓN DE CIERRE -->
-    <div style="text-align: center; margin-top: 20px;">
-        <button onclick="document.getElementById('pdfModal').close()" style="background-color: #4a5568; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: bold;">
-            Cerrar vista previa
-        </button>
-    </div>
-
-</dialog>
     
     
 
@@ -575,46 +508,45 @@ nav {
 
 
    <div style="margin-top: 40px; padding: 20px; border-top: 2px solid #f0f0f0;">
-    <p style="font-size: 18px; color: #333; margin-bottom: 15px;">¿Vas a comprar un vehículo usado en Ecuador? Verifica su estado hoy mismo:</p>
+    <p style="font-size: 18px; color: #333; margin-bottom: 15px;">¿Vas a comprar un vehículo usado en Ecuador? Verifica su estado hoy mismo 🚗💨:</p>
     
     <!-- He agregado target="_blank" aquí abajo -->
     <a href="https://wa.me/593992661432?text=Hola%20VerifiCar%20Ecuador,%20esta%20es%20mi%20placa:%20[PLACA]" 
        target="_blank" 
        style="display: inline-block; background-color: #25D366; color: #ffffff; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold;">
-       VerifiCar Placa
+       💬 VerifiCar Placa
     </a>
 </div>
 </section>
 
 <!-- SECCIÓN: RESULTADOS REALES: ESTRATEGIA Y AHORRO -->
 <section id="casos" style="padding: 40px 20px; font-family: sans-serif; background-color: #ffffff; text-align: center;">
-    <h2 style="color: #1d4099; margin-bottom: 30px;">Resultados Reales: Estrategia y Ahorro con VerifiCar Ecuador</h2>
+    <h2 style="color: #1d4099; margin-bottom: 30px;">Resultados Reales: Estrategia y Ahorro con VerifiCar Ecuador 📊</h2>
     
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
         
         <!-- CASO 1: AHORRO DE ALTO IMPACTO -->
         <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 5px solid #1d4099; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
             <p style="font-size: 15px; color: #1a1a1a; line-height: 1.6; margin-bottom: 15px;">
-                <strong>Auditoría de Alto Riesgo:</strong> Un vehículo ofertado en Cuenca aparentemente sin novedades ocultaba $900 en multas acumuladas de la EMOV y tasas de matriculación pendientes de años anteriores. Nuestro reporte evitó que el cliente asumiera esa deuda.
+                <strong>🚨 Auditoría de Alto Riesgo:</strong> Un vehículo ofertado en Cuenca aparentemente sin novedades ocultaba <strong>$900 en multas acumuladas</strong> de la EMOV y tasas de matriculación pendientes de años anteriores. Nuestro reporte evitó que el cliente asumiera esa deuda.
             </p>
-            </p>
-            <p style="font-size: 14px; font-weight: bold; color: #1d4099; margin: 0;">— Resultado: Ahorro directo de $900 Auditoria #VF-2026-002</p>
+            <p style="font-size: 14px; font-weight: bold; color: #1d4099; margin: 0;">— 💰 Resultado: Ahorro directo de $900 | Ref: #VF-2026-002</p>
         </div>
 
         <!-- CASO 2: NEGOCIACIÓN TÉCNICA -->
         <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 5px solid #1d4099; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
             <p style="font-size: 15px; color: #1a1a1a; line-height: 1.6; margin-bottom: 15px;">
-                <strong>Negociación Estratégica:</strong> Al revisar el historial de la placa, detectamos valores administrativos pendientes. El comprador usó nuestro informe oficial como base técnica para negociar una rebaja de $400 con el vendedor antes de ir a notaría.
+                <strong>📉 Negociación Estratégica:</strong> Al revisar el historial de la placa, detectamos valores administrativos pendientes. El comprador usó nuestro informe oficial como base técnica para negociar una <strong>rebaja de $400</strong> con el vendedor antes de ir a notaría.
             </p>
-            <p style="font-size: 14px; font-weight: bold; color: #1d4099; margin: 0;">— Rebaja lograda: $400 | Ref: #VF-2026-008</p>
+            <p style="font-size: 14px; font-weight: bold; color: #1d4099; margin: 0;">— 🤝 Rebaja lograda: $400 | Ref: #VF-2026-008</p>
         </div>
 
         <!-- CASO 3: SEGURIDAD LEGAL -->
         <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 5px solid #1d4099; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
             <p style="font-size: 15px; color: #1a1a1a; line-height: 1.6; margin-bottom: 15px;">
-                <strong>Placa sin Coincidencias:</strong> Una consulta devolvió alertas por discrepancias en los registros públicos del SRI y ANT. Recomendamos al usuario detener la compra hasta exigir la matrícula original y el Certificado Único Vehicular (CUV).
+                <strong>🛡️ Placa sin Coincidencias:</strong> Una consulta devolvió alertas por discrepancias en los registros públicos del SRI y ANT. Recomendamos al usuario detener la compra hasta exigir la matrícula original y el Certificado Único Vehicular (CUV).
             </p>
-            <p style="font-size: 14px; font-weight: bold; color: #1d4099; margin: 0;">— Prevención de estafa | Ref: #VF-2026-021</p>
+            <p style="font-size: 14px; font-weight: bold; color: #1d4099; margin: 0;">— ⚠️ Prevención de estafa | Ref: #VF-2026-021</p>
         </div>
     </div>
 </section>
