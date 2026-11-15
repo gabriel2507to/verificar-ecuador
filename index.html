@@ -390,6 +390,47 @@ nav {
     </h2>
 </section>
 
+<!-- BOTÓN PARA ABRIR EL VISOR DE MUESTRA -->
+<div style="text-align: center; margin: 30px auto;">
+    <button onclick="document.getElementById('pdfModal').showModal()" style="background-color: #1d4099; color: white; border: none; padding: 14px 28px; font-size: 1rem; font-weight: bold; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-family: sans-serif; transition: background 0.2s;">
+        📄 Ver ejemplo real de reporte PDF
+    </button>
+</div>
+
+<!-- VENTANA MODAL (POP-UP) DEL REPORTE -->
+<dialog id="pdfModal" style="max-width: 600px; width: 90%; padding: 25px; border-radius: 15px; border: none; box-shadow: 0 10px 25px rgba(0,0,0,0.25); font-family: sans-serif; box-sizing: border-box;">
+    
+    <!-- CABECERA DEL MODAL -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #e0e0e0; padding-bottom: 10px;">
+        <h3 style="color: #1d4099; margin: 0; font-size: 1.2rem;">Vista Previa - VerifiCar Ecuador</h3>
+        <button onclick="document.getElementById('pdfModal').close()" style="background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #666; line-height: 1;">&times;</button>
+    </div>
+
+    <!-- CONTENIDO SIMULADO DEL REPORTE CON DATOS DIFUMINADOS -->
+    <div style="background: #f8fafc; padding: 20px; border-radius: 10px; text-align: center; border: 1px dashed #cbd5e1;">
+        
+        <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); text-align: left; margin-bottom: 15px;">
+            <p style="margin: 0 0 8px 0; font-size: 0.85rem; color: #666;">PLACA: <span style="background: #e2e8f0; color: transparent; border-radius: 4px; user-select: none;">ABC-1234</span></p>
+            <p style="margin: 0 0 8px 0; font-size: 0.85rem; color: #666;">PROPIETARIO ACTUAL: <span style="background: #e2e8f0; color: transparent; border-radius: 4px; user-select: none;">Juan Pérez M.</span></p>
+            <p style="margin: 0 0 8px 0; font-size: 0.85rem; color: #e11d48; font-weight: bold;">⚠️ GRAVAMEN / PRENDA: Alerta de prenda comercial activa</p>
+            <p style="margin: 0; font-size: 0.85rem; color: #059669; font-weight: bold;">✔️ MULTAS MUNICIPALES (EMOV/AMT): Sin valores pendientes</p>
+        </div>
+
+        <p style="font-size: 0.85rem; color: #4a5568; margin: 0; line-height: 1.5;">
+            Este es un adelanto de la estructura clara, ordenada y profesional que recibes directamente en tu WhatsApp en menos de 20 minutos.
+        </p>
+    </div>
+
+    <!-- BOTÓN DE CIERRE -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="document.getElementById('pdfModal').close()" style="background-color: #4a5568; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: bold;">
+            Cerrar vista previa
+        </button>
+    </div>
+
+</dialog>
+    
+
 <section id="asesoria" style="padding: 60px 20px; background: #ffffff; text-align: center;">
     <h2 style="font-size: 2rem; margin-bottom: 40px; color: #1d4099;">¿Por qué elegir VerifiCar Ecuador?</h2>
     
