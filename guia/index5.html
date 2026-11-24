@@ -222,6 +222,66 @@ text-decoration: none;
 
 }
 
+.buscador-guias-wrap {
+    max-width: 720px;
+    margin: 0 auto 24px auto;
+    padding: 0 12px;
+  }
+
+  .buscador-guias-caja {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid #d6deeb;
+    border-radius: 10px;
+    padding: 8px 12px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  }
+
+  .buscador-guias-caja input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: #0f172a;
+    background: transparent;
+  }
+
+  .buscador-guias-limpiar {
+    border: none;
+    background: #f1f5f9;
+    color: #334155;
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    display: none;
+  }
+
+  .buscador-guias-limpiar.visible {
+    display: inline-block;
+  }
+
+  .buscador-guias-estado {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #475569;
+  }
+
+  .buscador-guias-vacio {
+    display: none;
+    max-width: 720px;
+    margin: 16px auto 24px auto;
+    padding: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    color: #334155;
+    font-size: 14px;
+    text-align: center;
+  }
+        
 </style>
 
 </head>
@@ -264,7 +324,27 @@ text-decoration: none;
   
 </div>
 
+<div class="buscador-guias-wrap">
+  <div class="buscador-guias-caja">
+    <i class="fa-solid fa-magnifying-glass" style="color: #1d4ed8;"></i>
+    <input
+      type="search"
+      id="filtro-guias"
+      placeholder="Buscar guía: AMT, matrícula, multa, traspaso, estafas..."
+      aria-label="Buscar guía vehicular"
+    />
+    <button type="button" id="limpiar-guias" class="buscador-guias-limpiar">
+      Limpiar
+    </button>
+  </div>
+  <div id="estado-guias" class="buscador-guias-estado"></div>
+</div>
 
+<div id="vacio-guias" class="buscador-guias-vacio">
+  No encontramos una guía con ese término. Prueba con otra palabra (como <strong>multa</strong>, <strong>matrícula</strong> o <strong>traspaso</strong>) o escríbenos directo por WhatsApp si buscas un caso puntual.
+</div>
+
+        
 
 <!-- Rejilla con tus Artículos -->
 
@@ -497,7 +577,60 @@ Leer artículo completo <i class="fa-solid fa-arrow-right"></i>
 
 </section>
 
+<script>
+  (function () {
+    const input = document.getElementById("filtro-guias");
+    const limpiarBtn = document.getElementById("limpiar-guias");
+    const estado = document.getElementById("estado-guias");
+    const vacio = document.getElementById("vacio-guias");
+    const tarjetas = Array.from(document.querySelectorAll(".card-articulo"));
 
+    if (!input || !tarjetas.length) return;
+
+    function normalizar(texto) {
+      return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim();
+    }
+
+    function actualizarFiltro() {
+      const consulta = normalizar(input.value);
+      let visibles = 0;
+
+      tarjetas.forEach((tarjeta) => {
+        const contenido = normalizar(tarjeta.textContent);
+        const coincide = !consulta || contenido.includes(consulta);
+        tarjeta.style.display = coincide ? "" : "none";
+        if (coincide) visibles++;
+      });
+
+      limpiarBtn.classList.toggle("visible", consulta.length > 0);
+
+      if (!consulta) {
+        estado.textContent = `Mostrando las ${tarjetas.length} guías disponibles.`;
+      } else {
+        estado.textContent =
+          visibles === 1
+            ? `1 guía encontrada para "${input.value.trim()}".`
+            : `${visibles} guías encontradas para "${input.value.trim()}".`;
+      }
+
+      vacio.style.display = visibles === 0 ? "block" : "none";
+    }
+
+    input.addEventListener("input", actualizarFiltro);
+
+    limpiarBtn.addEventListener("click", () => {
+      input.value = "";
+      actualizarFiltro();
+      input.focus();
+    });
+
+    actualizarFiltro();
+  })();
+</script>
 
 <!-- Footer Corporativo Corregido -->
 <footer style="width: 100%; padding: 50px 20px; color: #555; font-size: 0.95em; border-top: 3px solid #1d4099; margin-top: 60px; background-color: #f4f4f4; display: flex; flex-direction: column; align-items: center; text-align: center; box-sizing: border-box;">
