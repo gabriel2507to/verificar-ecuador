@@ -32,18 +32,89 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "VerifiCar Ecuador",
-  "description": "Auditoría de historial vehicular, multas de ANT, SRI, EMOV y gravámenes por placa en Ecuador.",
-  "url": "https://verificarecuador.com/",
-  "telephone": "+593992661432",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Cuenca",
-    "addressCountry": "EC"
-  },
-  "areaServed": "Ecuador",
-  "priceRange": "$"
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://verificarecuador.com/#organization",
+      "name": "VerifiCar Ecuador",
+      "description": "Plataforma privada en Ecuador para auditoría de historial vehicular por placa. Verificamos multas en ANT, EMOV, AMT y ATM, gravámenes, prohibiciones de enajenar y antecedentes judiciales antes de comprar un auto usado.",
+      "url": "https://verificarecuador.com/",
+      "telephone": "+593992661432",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cuenca",
+        "addressRegion": "Azuay",
+        "addressCountry": "EC"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Ecuador"
+      },
+      "priceRange": "$5.00 USD",
+      "knowsAbout": [
+        "Auditoría vehicular por placa en Ecuador",
+        "Consulta de multas ANT, EMOV, AMT y ATM",
+        "Verificación de gravámenes y prohibiciones de enajenar SRI",
+        "Antecedentes judiciales vehiculares SATJE",
+        "Transferencia de dominio y compra segura de autos usados en Ecuador"
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Dictamen de Auditoría Vehicular por Placa",
+      "provider": {
+        "@id": "https://verificarecuador.com/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Ecuador"
+      },
+      "description": "Reporte consolidado en PDF entregado por WhatsApp en menos de 20 minutos con diagnóstico tipo semáforo sobre multas, recargos por calendarización, gravámenes, bloqueos y antecedentes judiciales de vehículos en Ecuador.",
+      "offers": {
+        "@type": "Offer",
+        "price": "5.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué incluye el reporte vehicular de VerifiCar Ecuador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Entregamos un informe consolidado en PDF con diagnóstico tipo semáforo (Verde, Amarillo o Rojo) que verifica gravámenes, bloqueos y prohibiciones de enajenar en SRI, multas pendientes y recargos por calendarización en ANT y GADs municipales (EMOV Cuenca, AMT Quito, ATM Guayaquil), y antecedentes en la Función Judicial (SATJE)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta y en qué tiempo entregan el informe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El costo único es de $5.00 USD mediante Deuna o transferencia bancaria. Solo envías la placa por WhatsApp y recibes el reporte en PDF en menos de 20 minutos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El reporte incluye el historial mecánico de las revisiones técnicas vehiculares (RTV)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El historial mecánico detallado de la RTV no viene desglosado en el PDF, pero el reporte sí detecta multas o recargos pendientes por calendarización o por no haber realizado la RTV a tiempo, además de valores de matrícula y bloqueos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿VerifiCar Ecuador atiende placas de todo el país?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Operamos desde Cuenca y auditamos placas de las 24 provincias del Ecuador, revisando infracciones nacionales en la ANT y municipales como EMOV EP, AMT y ATM."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
     
