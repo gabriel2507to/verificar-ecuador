@@ -1,0 +1,47 @@
+# VerifiCar Ecuador
+
+
+
+> Plataforma privada e independiente en Ecuador para auditoría vehicular por placa, verificación de historial legal, multas ocultas, gravámenes y antecedentes antes de comprar un vehículo usado. Operamos desde Cuenca para todo el país.
+
+
+
+## Servicio Principal
+
+**Auditoría Vehicular por Placa ($5.00 USD):** Consolidación manual y verificación técnica en menos de 20 minutos entregada en PDF vía WhatsApp.
+**Fuentes Oficiales Consultadas:** Agencia Nacional de Tránsito (ANT), Servicio de Rentas Internas (SRI), gobiernos municipales (EMOV EP en Cuenca, AMT en Quito, ATM en Guayaquil) y Función Judicial (SATJE).
+**Qué incluye el reporte:**
+Diagnóstico visual de riesgo tipo semáforo (Verde, Amarillo, Rojo).
+Verificación de gravámenes, prendas comerciales, bloqueos y prohibiciones de enajenar (SRI / registros públicos).
+Consulta de multas de tránsito pendientes y recargos por calendarización o matriculación atrasada (ANT y GADs).
+Revisión de antecedentes judiciales activos (SATJE) y alertas públicas de robo o retención vehicular.
+Criterio técnico para negociar el precio antes de firmar contrato en notaría.
+**Alcance y limitaciones:** Es un servicio privado de auditoría informativa, no una entidad gubernamental ni estudio jurídico. El reporte consolida infracciones, valores y alertas visibles en fuentes públicas; no incluye historial mecánico interno de revisiones técnicas vehiculares (RTV), aunque sí detecta multas o recargos por incumplimiento de calendarización.
+
+
+## Páginas Clave
+
+[Portada y Solicitud de Auditoría](https://verificarecuador.com/): Información del servicio, casos reales de ahorro y acceso directo a consulta por placa.
+[Centro de Guías y Artículos Vehiculares](https://verificarecuador.com/guia/index5.html): Índice completo con buscador sobre compra segura, multas, traspasos, matriculación y gravámenes en Ecuador.
+[Condiciones del Servicio y LOPDP](https://verificarecuador.com/index3.html): Términos legales, privacidad y protección de datos personales.
+
+
+## Guías y Artículos Especializados
+
+[Guía de Compra Segura en Cuenca](https://verificarecuador.com/guia/index4.html): Cómo revisar gravámenes, multas de tránsito en EMOV/AMT/ANT y prohibiciones de enajenar antes de entregar dinero.
+[Minuta de Compraventa y Embargos](https://verificarecuador.com/guia/minuta-compraventa.html): Claves para redactar el contrato en notaría, plazos de traspaso y detección de juicios coactivos del dueño anterior.
+[Multas Ocultas en la ANT y EMOV](https://verificarecuador.com/guia/multas-ant-emov.html): Cómo se heredan infracciones y fotomultas con la placa y cómo evitar asumirlas antes de cerrar el trato.
+[Las 4 Estafas Más Comunes](https://verificarecuador.com/guia/estafas-comunes-autos.html): Identificación de intermediarios con falsos poderes, vehículos clonados y contratos de arras informales.
+[Requisitos de Matriculación en Ecuador](https://verificarecuador.com/guia/requisitos-matriculacion-ecuador.html): Calendario obligatorio por último dígito de placa, pagos de rodaje e inspección técnica vehicular.
+[Contratos Abiertos y Terceros Dueños](https://verificarecuador.com/guia/contratos-abiertos.html): Riesgos legales de comprar vehículos con cadenas de dueños anteriores sin traspaso directo.
+[Historial de Dueños y Coactivas Municipales](https://verificarecuador.com/guia/coactivas.html): Cómo los juicios coactivos en municipios y la falta de traspaso formal bloquean la matrícula.
+[Reserva de Dominio y Gravámenes Ocultos](https://verificarecuador.com/guia/reserva-de-dominio.html): Cómo detectar créditos prendarios no cancelados en el Registro Mercantil que bloquean el traspaso aunque el SRI luzca limpio.
+[Calendario de Matriculación Vehicular y Multas por Rezagos](https://verificarecuador.com/guia/calendario-matriculacion.html): Cronograma obligatorio por último dígito de placa, pagos de rodaje y recargos de ANT y GADs.
+[Guía Paso a Paso para la Transferencia de Dominio Vehicular](https://verificarecuador.com/guia/como-hacer-el-salvo-conducto-o-traspaso.html): Requisitos en la ANT, pago del impuesto del 1% de transferencia y plazo de 30 días para evitar multa por extemporaneidad.
+[Multa por Condicional AMT: Qué Significa y Cómo Afecta](https://verificarecuador.com/guia/multamt.html): Qué implica una multa o condición asociada a tránsito, cómo frena matrícula, RTV o traspaso y qué revisar antes de decidir.
+
+
+## Ubicación y Contacto
+
+**Sede operativa:** Cuenca, Azuay, Ecuador (cobertura nacional en las 24 provincias).
+**Sitio web:** https://verificarecuador.com

@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Rastreadores de búsqueda con IA
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://verificarecuador.com/sitemap.xml
