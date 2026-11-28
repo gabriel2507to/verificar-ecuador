@@ -28,6 +28,130 @@
         p { text-align: justify; text-justify: inter-word; margin: 10px 0; color: #333; }
         .caja-alerta { background: #fffbe2; border: 1px solid #fcd34d; border-radius: 12px; padding: 20px; margin: 20px 0; display: flex; gap: 15px; align-items: flex-start; }
         .caja-alerta i { font-size: 1.5rem; color: #d97706; margin-top: 2px; }
+
+        /* Inspector de puntos críticos de un contrato abierto (no es simulador ni puntaje) */
+        .expediente-interactivo {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 14px;
+            padding: 18px;
+            margin-top: 18px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+        }
+        .expediente-encabezado {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 14px;
+        }
+        .expediente-titulo {
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .expediente-sub {
+            font-size: 0.78rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+        .hotspots-doc {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        @media (max-width: 540px) {
+            .hotspots-doc { grid-template-columns: 1fr; }
+        }
+        .hotspot-btn {
+            text-align: left;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 11px 12px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .hotspot-btn:hover {
+            border-color: var(--primary-blue);
+            background: #eff6ff;
+        }
+        .hotspot-btn.seleccionado {
+            background: #1d4099;
+            border-color: #1d4099;
+            color: #ffffff;
+        }
+        .hotspot-kicker {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            opacity: 0.75;
+        }
+        .hotspot-nombre {
+            font-size: 0.86rem;
+            font-weight: 700;
+        }
+        .ficha-punto-abierto {
+            background: #f8fafc;
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 0 10px 10px 0;
+            padding: 14px 15px;
+            font-size: 0.9rem;
+            color: #1e293b;
+        }
+        .ficha-pregunta {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #cbd5e1;
+            font-size: 0.84rem;
+            color: #334155;
+        }
+        .fila-placa-expediente {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .campo-placa-exp {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1 1 180px;
+        }
+        .input-placa-exp {
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            font-size: 0.88rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            max-width: 145px;
+            width: 100%;
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+        .link-wa-exp {
+            color: var(--primary-blue);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 0.88rem;
+        }
+        .link-wa-exp:hover { text-decoration: underline; }
+
         .btn-cta { display: block; text-align: center; background: var(--primary-blue); color: white; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 35px; box-shadow: 0 4px 12px rgba(29, 64, 153, 0.25); transition: transform 0.2s; }
         .btn-cta:hover { transform: translateY(-2px); }
     </style>
@@ -58,6 +182,43 @@
         <div class="bloque-guia">
             <h2><i class="fa-solid fa-triangle-exclamation"></i> 2. Los problemas graves al intentar matricular o revender</h2>
             <p>Cuando intentas poner el vehículo a tu nombre, te enfrentas a un laberinto administrativo y legal. Tal como advierten los <a href="https://verificarecuador.com/" target="_blank" style="color: #1d4099; text-decoration: none; font-weight: 600;">estándares de auditoría de VerifiCar Ecuador</a>, si el propietario original que consta en el sistema del SRI decide revocar poderes, fallece, o entra en un juicio coactivo o demanda de alimentos (SUPA), <strong>el vehículo queda automáticamente bloqueado</strong>. Ninguna notaría ni entidad de tránsito aceptará dar trámite a contratos antiguos de terceras personas ajenas al proceso.</p>
+
+            <!-- Inspector de puntos críticos de un contrato abierto -->
+            <div class="expediente-interactivo">
+                <div class="expediente-encabezado">
+                    <span class="expediente-titulo"><i class="fa-solid fa-magnifying-glass"></i> Verifica los puntos críticos antes de cerrar</span>
+                    <span class="expediente-sub">Toca un punto para ver qué verificar</span>
+                </div>
+
+                <div class="hotspots-doc">
+                    <button type="button" class="hotspot-btn seleccionado" onclick="abrirPuntoExpediente('contrato', this)">
+                        <span class="hotspot-kicker">Punto 01</span>
+                        <span class="hotspot-nombre">Contrato firmado sin traspaso</span>
+                    </button>
+                    <button type="button" class="hotspot-btn" onclick="abrirPuntoExpediente('titular', this)">
+                        <span class="hotspot-kicker">Punto 02</span>
+                        <span class="hotspot-nombre">Titular inscrito en sistema</span>
+                    </button>
+                    <button type="button" class="hotspot-btn" onclick="abrirPuntoExpediente('bloqueo', this)">
+                        <span class="hotspot-kicker">Punto 03</span>
+                        <span class="hotspot-nombre">Coactiva, SUPA o revocatoria</span>
+                    </button>
+                    <button type="button" class="hotspot-btn" onclick="abrirPuntoExpediente('notaria', this)">
+                        <span class="hotspot-kicker">Punto 04</span>
+                        <span class="hotspot-nombre">Trámite en notaría y tránsito</span>
+                    </button>
+                </div>
+
+                <div id="ficha-punto-abierto" class="ficha-punto-abierto"></div>
+
+                <div class="fila-placa-expediente">
+                    <div class="campo-placa-exp">
+                        <label for="placa-expediente" style="font-size:0.8rem; font-weight:700; color:#334155;">Placa:</label>
+                        <input id="placa-expediente" type="text" maxlength="10" placeholder="Ej. ABC-1234" class="input-placa-exp" oninput="actualizarEnlaceExpediente()">
+                    </div>
+                    <a id="link-wa-expediente" href="#" target="_blank" class="link-wa-exp">VerifiCar esta placa por WhatsApp →</a>
+                </div>
+            </div>
             
             <div class="caja-alerta">
                 <i class="fa-solid fa-lightbulb"></i>
@@ -123,6 +284,63 @@
        </svg>
        VerifiCar Placa
     </a>
+
+    <script>
+    const puntosExpediente = {
+        contrato: {
+            titulo: "Contrato firmado sin traspaso oficial",
+            detalle: "Tener un contrato firmado o endosado no reemplaza el registro del traspaso en el SRI y la entidad de tránsito. Mientras no se cierre, el vehículo sigue vinculado en el sistema a un titular anterior.",
+            pregunta: "Qué conviene confirmar: si existe traspaso inscrito o si el vendedor está dispuesto a realizar el traspaso directo formal."
+        },
+        titular: {
+            titulo: "Quien figura como propietario inscrito",
+            detalle: "En los trámites y revisiones pesa quién consta oficialmente registrado en las bases públicas, no solo quien tiene la posesión del vehículo o un papel firmado.",
+            pregunta: "Qué conviene confirmar: si quien te ofrece el carro coincide con la titularidad inscrita y si hay intermediarios en el medio."
+        },
+        bloqueo: {
+            titulo: "Coactiva, SUPA, revocatoria o fallecimiento",
+            detalle: "Si el propietario inscrito afronta un juicio coactivo, demanda de alimentos (SUPA), revoca poderes o fallece antes de inscribir el traspaso, el vehículo puede quedar bloqueado.",
+            pregunta: "Qué conviene confirmar: verificar el historial y bloqueos de la placa antes de entregar dinero o cerrar el acuerdo."
+        },
+        notaria: {
+            titulo: "Trámite en notaría y entidad de tránsito",
+            detalle: "Cuando el traspaso no está al día o hay cadena de contratos informales, el trámite puede frenarse al intentar matricular, transferir o revender.",
+            pregunta: "Qué conviene confirmar: verificar el estado registral y de deudas de la placa antes de asumir compromisos."
+        }
+    };
+
+    let puntoActualExpediente = "contrato";
+
+    function abrirPuntoExpediente(clave, btnEl) {
+        puntoActualExpediente = clave;
+        document.querySelectorAll(".hotspot-btn").forEach(b => b.classList.remove("seleccionado"));
+        if (btnEl) btnEl.classList.add("seleccionado");
+        renderizarFichaExpediente();
+        actualizarEnlaceExpediente();
+    }
+
+    function renderizarFichaExpediente() {
+        const ficha = document.getElementById("ficha-punto-abierto");
+        const p = puntosExpediente[puntoActualExpediente];
+        ficha.innerHTML = `
+            <div style="font-weight:800; color:#1d4099; margin-bottom:4px;">${p.titulo}</div>
+            <div>${p.detalle}</div>
+            <div class="ficha-pregunta"><strong>${p.pregunta}</strong></div>
+        `;
+    }
+
+    function actualizarEnlaceExpediente() {
+        const placa = document.getElementById("placa-expediente").value.trim().toUpperCase();
+        const link = document.getElementById("link-wa-expediente");
+        const refPlaca = placa ? " para la placa " + placa : "";
+        const msg = encodeURIComponent("Hola, VerifiCar Ecuador, revisé el punto '" + puntoActualExpediente + "' sobre contratos abiertos" + refPlaca + " y quiero verificar una placa");
+        link.href = "https://wa.me/593992661432?text=" + msg;
+        link.textContent = placa ? `Consultar placa ${placa} por WhatsApp →` : "VerifiCar esta placa por WhatsApp →";
+    }
+
+    renderizarFichaExpediente();
+    actualizarEnlaceExpediente();
+    </script>
     
 </body>
 </html>
