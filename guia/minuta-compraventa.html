@@ -56,6 +56,93 @@
         }
         .caja-alerta i { font-size: 1.5rem; color: #d97706; margin-top: 2px; }
 
+        /* Visor interactivo de cláusulas y puntos críticos de la minuta */
+        .visor-minuta {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 14px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+        .visor-minuta-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        .visor-minuta-titulo {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .pestanas-clausula {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        @media (max-width: 540px) {
+            .pestanas-clausula { grid-template-columns: 1fr; }
+        }
+        .btn-clausula-minuta {
+            background: #ffffff;
+            color: #1e293b;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 8px 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.15s ease;
+        }
+        .btn-clausula-minuta.activa {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border-color: var(--primary-blue);
+        }
+        .detalle-clausula-box {
+            background: #ffffff;
+            border-left: 4px solid var(--primary-blue);
+            border-radius: 0 10px 10px 0;
+            padding: 13px 14px;
+            font-size: 0.89rem;
+            color: #1e293b;
+        }
+        .fila-wa-minuta {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .input-placa-minuta {
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #1a1a1a;
+            font-size: 0.88rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            max-width: 145px;
+            width: 100%;
+        }
+        .link-wa-minuta {
+            color: var(--primary-blue);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 0.88rem;
+        }
+        .link-wa-minuta:hover { text-decoration: underline; }
+
         .btn-cta { 
             display: block; text-align: center; background: var(--primary-blue); 
             color: white; padding: 18px; border-radius: 12px; 
@@ -96,6 +183,29 @@
             <h2><i class="fa-solid fa-file-pen"></i> 1. Cláusulas críticas en la Minuta: El riesgo del valor declarado</h2>
             <p>La minuta no es un simple borrador; es el contrato definitivo de compraventa. En Ecuador, un error común es declarar un precio inferior al comercial para reducir gastos notariales. Si surgen vicios ocultos o el contrato debe rescindirse judicialmente, <strong>la notaría y los jueces solo tomarán como base el valor pactado en el papel</strong>.</p>
             <p>Exige siempre la <strong>cláusula de saneamiento por evicción</strong>, la cual obliga formalmente al vendedor a responder con su patrimonio si el vehículo resulta bloqueado por problemas legales anteriores a la venta.</p>
+
+            <!-- Visor interactivo de puntos críticos de la minuta antes de firmar -->
+            <div class="visor-minuta">
+                <div class="visor-minuta-top">
+                    <span class="visor-minuta-titulo"><i class="fa-solid fa-file-contract"></i> Verifíca en la minuta antes de firmar</span>
+                </div>
+
+                <div class="pestanas-clausula">
+                    <button type="button" class="btn-clausula-minuta activa" onclick="seleccionarPuntoMinuta('valor', this)">Valor pactado en la minuta</button>
+                    <button type="button" class="btn-clausula-minuta" onclick="seleccionarPuntoMinuta('eviccion', this)">Saneamiento por evicción</button>
+                    <button type="button" class="btn-clausula-minuta" onclick="seleccionarPuntoMinuta('plazo30', this)">Plazo de 30 días y bloqueos</button>
+                </div>
+
+                <div id="detalle-clausula-minuta" class="detalle-clausula-box"></div>
+
+                <div class="fila-wa-minuta">
+                    <div style="display:flex; align-items:center; gap:8px; flex:1 1 170px;">
+                        <label for="placa-minuta" style="font-size:0.8rem; font-weight:700; color:#334155;">Placa:</label>
+                        <input id="placa-minuta" type="text" maxlength="10" placeholder="Ej. AZU-1234" class="input-placa-minuta" oninput="actualizarEnlaceMinuta()">
+                    </div>
+                    <a id="link-wa-minuta" href="#" target="_blank" class="link-wa-minuta">VerifiCar esta placa por WhatsApp →</a>
+                </div>
+            </div>
         </div>
 
         <!-- Bloque 2 -->
@@ -117,8 +227,8 @@
             <h2><i class="fa-solid fa-magnifying-glass-dollar"></i> 3. Gravámenes "Invisibles": ¿Por qué la ANT no muestra todo?</h2>
             <p>Consultar únicamente la plataforma del SRI o la ANT resulta insuficiente. Existen bloqueos institucionales que no se reflejan inmediatamente en el sistema nacional:</p>
             <p>• <strong>Coactivas Municipales:</strong> Tasa de rodaje, fotomultas locales (EMOV, AMT, ATM, etc.) o patentes del dueño anterior que frenan la matriculación.<br>
-            • <strong>Prohibiciones por Alimentos / Supa:</strong> Órdenes judiciales libradas por juzgados de la Niñez y Adolescencia.<br>
-            • <strong>Reserva de Dominio no levantada:</strong> Créditos prendarios cancelados años atrás donde el dueño jamás realizó el trámite de levantamiento en el Registro Mercantil.</p>
+- <strong>Prohibiciones por Alimentos / Supa:</strong> Órdenes judiciales libradas por juzgados de la Niñez y Adolescencia.<br>
+- <strong>Reserva de Dominio no levantada:</strong> Créditos prendarios cancelados años atrás donde el dueño jamás realizó el trámite de levantamiento en el Registro Mercantil.</p>
         </div>
 
         <!-- Preguntas Frecuentes Nivel Pro -->
@@ -199,6 +309,51 @@
        </svg>
        VerifiCar Placa
     </a>
+
+    <script>
+    const puntosMinutaData = {
+        valor: {
+            titulo: "Valor declarado frente a rescisión o vicios",
+            texto: "Declarar un monto menor al real para abaratar notaría deja como referencia el valor pactado en el documento si el negocio se cae o se reclama judicialmente."
+        },
+        eviccion: {
+            titulo: "Cláusula de saneamiento por evicción",
+            texto: "Ayuda a exigir respaldo formal al vendedor si el vehículo presenta bloqueos o problemas legales previos que afecten tu derecho sobre el bien."
+        },
+        plazo30: {
+            titulo: "Plazo de 30 días y riesgo de gravámenes o coactivas",
+            texto: "El traspaso no se perfecciona solo con firmar ante notario: inscribir el cambio a tiempo y auditar gravámenes, coactivas, SUPA o reservas de dominio reduce sorpresas."
+        }
+    };
+
+    let puntoMinutaActivo = "valor";
+
+    function seleccionarPuntoMinuta(clave, btnEl) {
+        puntoMinutaActivo = clave;
+        document.querySelectorAll(".btn-clausula-minuta").forEach(b => b.classList.remove("activa"));
+        if (btnEl) btnEl.classList.add("activa");
+        renderizarPuntoMinuta();
+        actualizarEnlaceMinuta();
+    }
+
+    function renderizarPuntoMinuta() {
+        const cont = document.getElementById("detalle-clausula-minuta");
+        const item = puntosMinutaData[puntoMinutaActivo];
+        cont.innerHTML = `<div style="font-weight:800; color:#1d4099; margin-bottom:4px;">${item.titulo}</div><div>${item.texto}</div>`;
+    }
+
+    function actualizarEnlaceMinuta() {
+        const placa = document.getElementById("placa-minuta").value.trim().toUpperCase();
+        const link = document.getElementById("link-wa-minuta");
+        const refPlaca = placa ? " (Placa: " + placa + ")" : "";
+        const msg = encodeURIComponent("Hola, VerifiCar Ecuador, revisé el punto '" + puntoMinutaActivo + "' en la guía de minuta de compraventa" + refPlaca + " y quiero auditar una placa");
+        link.href = "https://wa.me/593992661432?text=" + msg;
+        link.textContent = placa ? `Auditar placa ${placa} por WhatsApp →` : "VerifiCar esta placa por WhatsApp →";
+    }
+
+    renderizarPuntoMinuta();
+    actualizarEnlaceMinuta();
+    </script>
 
 </body>
 </html>
