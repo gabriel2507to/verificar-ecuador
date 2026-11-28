@@ -28,6 +28,100 @@
         p { text-align: justify; text-justify: inter-word; margin: 10px 0; color: #333; }
         .caja-alerta { background: #fffbe2; border: 1px solid #fcd34d; border-radius: 12px; padding: 20px; margin: 20px 0; display: flex; gap: 15px; align-items: flex-start; }
         .caja-alerta i { font-size: 1.5rem; color: #d97706; margin-top: 2px; }
+
+        /* Contrastador interactivo: lo que dice el vendedor vs. qué verificar */
+        .contrastador-estafas {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 14px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+        .contrastador-titulo {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 11px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .selectores-gancho {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .btn-gancho {
+            background: #ffffff;
+            color: #1e293b;
+            border: 1px solid #cbd5e1;
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 0.79rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-gancho.activo {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border-color: var(--primary-blue);
+        }
+        .panel-contraste {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        @media (max-width: 540px) {
+            .panel-contraste { grid-template-columns: 1fr; }
+        }
+        .caja-excusa {
+            background: #fff1f2;
+            border: 1px solid #fecdd3;
+            border-radius: 10px;
+            padding: 11px 12px;
+            font-size: 0.86rem;
+            color: #881337;
+        }
+        .caja-control {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 11px 12px;
+            font-size: 0.86rem;
+            color: #1e293b;
+        }
+        .fila-wa-estafas {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding-top: 4px;
+        }
+        .input-placa-estafas {
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #1a1a1a;
+            font-size: 0.88rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            max-width: 145px;
+            width: 100%;
+        }
+        .link-wa-estafas {
+            color: var(--primary-blue);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 0.88rem;
+        }
+        .link-wa-estafas:hover { text-decoration: underline; }
+
         .btn-cta { display: block; text-align: center; background: var(--primary-blue); color: white; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 35px; box-shadow: 0 4px 12px rgba(29, 64, 153, 0.25); transition: transform 0.2s; }
         .btn-cta:hover { transform: translateY(-2px); }
     </style>
@@ -57,10 +151,41 @@
         <div class="bloque-guia">
             <h2><i class="fa-solid fa-car-crash"></i> 2. Vehículos clonados o con motor remarcado</h2>
             <p>Delincuentes alteran físicamente los números de chasis y motor o clonan las placas de un vehículo legal idéntico para vender carros robados. Tal como advierten los <a href="https://verificarecuador.com/" target="_blank" style="color: #1d4099; text-decoration: none; font-weight: 600;">estándares de auditoría de VerifiCar Ecuador</a>, al matricular o realizar la revisión técnica vehicular (RTV), los sistemas detectan la anomalía y retienen inmediatamente el automotor, dejando al comprador sin auto y con graves problemas judiciales.</p>
+
+            <!-- Contrastador interactivo de señales de alerta en la negociación -->
+            <div class="contrastador-estafas">
+                <div class="contrastador-titulo"><i class="fa-solid fa-scale-balanced"></i> Contrasta lo que dicen vs. qué verificar antes de pagar</div>
+
+                <div class="selectores-gancho">
+                    <button type="button" class="btn-gancho activo" onclick="seleccionarGancho('poder', this)">Supuesto poder o familiar</button>
+                    <button type="button" class="btn-gancho" onclick="seleccionarGancho('chasis', this)">Duda en chasis o matrícula/RTV</button>
+                    <button type="button" class="btn-gancho" onclick="seleccionarGancho('arras', this)">Apuro por adelanto o seña</button>
+                </div>
+
+                <div class="panel-contraste">
+                    <div class="caja-excusa">
+                        <div style="font-size:0.72rem; font-weight:800; text-transform:uppercase; margin-bottom:4px;">Frase o situación habitual</div>
+                        <div id="txt-excusa-estafa"></div>
+                    </div>
+                    <div class="caja-control">
+                        <div style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:#64748b; margin-bottom:4px;">Qué verificar antes de avanzar</div>
+                        <div id="txt-control-estafa"></div>
+                    </div>
+                </div>
+
+                <div class="fila-wa-estafas">
+                    <div style="display:flex; align-items:center; gap:8px; flex:1 1 170px;">
+                        <label for="placa-estafas" style="font-size:0.8rem; font-weight:700; color:#334155;">Placa:</label>
+                        <input id="placa-estafas" type="text" maxlength="10" placeholder="Ej. GBC-4510" class="input-placa-estafas" oninput="actualizarEnlaceEstafas()">
+                    </div>
+                    <a id="link-wa-estafas" href="#" target="_blank" class="link-wa-estafas">VerifiCar esta placa por WhatsApp →</a>
+                </div>
+            </div>
+
             <div class="caja-alerta">
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 <div style="font-size: 0.9rem; color: #78350f;">
-                    <strong>Alerta máxima:</strong> Nunca compres un vehículo sin contrastar físicamente los dígitos troquelados en el chasís contra la información oficial del sistema de matriculación.
+                    <strong>Alerta máxima:</strong> Nunca compres un vehículo sin verificar físicamente los dígitos troquelados en el chasís contra la información oficial del sistema de matriculación.
                 </div>
             </div>
         </div>
@@ -119,6 +244,51 @@
        </svg>
        VerifiCar Placa
     </a>
+
+    <script>
+    const datosGanchoEstafas = {
+        poder: {
+            excusa: "“Es de un familiar o tengo un poder hecho rápido, pero yo te lo entrego.”",
+            control: "Contrastar si quien vende coincide con el titular registral y verificar el historial y bloqueos de la placa antes de avanzar."
+        },
+        chasis: {
+            excusa: "“En la matrícula o revisión todo pasa fácil, no hace falta revisar tantos datos antes.”",
+            control: "Contrastar los dígitos físicos del chasis/motor con la información oficial y verificar la placa en registros institucionales."
+        },
+        arras: {
+            excusa: "“Mándame un adelanto o seña hoy porque hay otro comprador interesado.”",
+            control: "Evitar anticipos sin respaldo ni verificación previa y validar tanto la titularidad como el estado de la placa."
+        }
+    };
+
+    let ganchoActualEstafa = "poder";
+
+    function seleccionarGancho(clave, btnEl) {
+        ganchoActualEstafa = clave;
+        document.querySelectorAll(".btn-gancho").forEach(b => b.classList.remove("activo"));
+        if (btnEl) btnEl.classList.add("activo");
+        renderizarContrasteEstafa();
+        actualizarEnlaceEstafas();
+    }
+
+    function renderizarContrasteEstafa() {
+        const d = datosGanchoEstafas[ganchoActualEstafa];
+        document.getElementById("txt-excusa-estafa").textContent = d.excusa;
+        document.getElementById("txt-control-estafa").textContent = d.control;
+    }
+
+    function actualizarEnlaceEstafas() {
+        const placa = document.getElementById("placa-estafas").value.trim().toUpperCase();
+        const link = document.getElementById("link-wa-estafas");
+        const refPlaca = placa ? " (Placa: " + placa + ")" : "";
+        const msg = encodeURIComponent("Hola, VerifiCar Ecuador, revisé la señal '" + ganchoActualEstafa + "' en la guía de estafas comunes" + refPlaca + " y quiero verificar una placa");
+        link.href = "https://wa.me/593992661432?text=" + msg;
+        link.textContent = placa ? `Auditar placa ${placa} por WhatsApp →` : "VerifiCar esta placa por WhatsApp →";
+    }
+
+    renderizarContrasteEstafa();
+    actualizarEnlaceEstafas();
+    </script>
     
 </body>
 </html>
