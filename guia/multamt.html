@@ -56,6 +56,150 @@
         }
         .caja-alerta i { font-size: 1.5rem; color: #d97706; margin-top: 2px; }
 
+        /* Simulador enfocado en multa por condicional AMT */
+        .simulador-condicional {
+            background: linear-gradient(145deg, #f8fafc 0%, #eef2ff 100%);
+            border: 1px solid #c7d2fe;
+            border-radius: 14px;
+            padding: 18px;
+            margin-top: 18px;
+        }
+        .simulador-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .simulador-titulo {
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .chip-semaforo {
+            font-size: 0.78rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+        .selector-condicional-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .selector-condicional-grid label {
+            display: block;
+            font-size: 0.84rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+        .selector-condicional-grid select,
+        .campo-placa-input {
+            width: 100%;
+            padding: 9px 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #1a1a1a;
+            font-size: 0.92rem;
+        }
+        .campo-placa-input {
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 700;
+        }
+        .chips-escenario {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .btn-escenario {
+            background: #ffffff;
+            color: #1e293b;
+            border: 1px solid #cbd5e1;
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-escenario.activo {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border-color: var(--primary-blue);
+        }
+        .checklist-condicional {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+        }
+        .checklist-titulo {
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #334155;
+            margin-bottom: 6px;
+            cursor: pointer;
+        }
+        .check-item:last-child { margin-bottom: 0; }
+        .check-item input[type="checkbox"] {
+            accent-color: var(--primary-blue);
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
+        .barra-fricción-wrap {
+            background: #e2e8f0;
+            border-radius: 999px;
+            height: 9px;
+            overflow: hidden;
+            margin: 10px 0 6px 0;
+        }
+        .barra-fricción-fill {
+            height: 100%;
+            width: 55%;
+            background: #d97706;
+            border-radius: 999px;
+            transition: width 0.25s ease, background-color 0.25s ease;
+        }
+        .resultado-condicional {
+            margin-top: 12px;
+            padding: 13px 14px;
+            border-radius: 10px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            font-size: 0.92rem;
+            color: #1e293b;
+        }
+        .link-auditoria-condicional {
+            display: inline-block;
+            margin-top: 9px;
+            color: #1d4099;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
         .btn-cta { 
             display: block; text-align: center; background: var(--primary-blue); 
             color: white; padding: 18px; border-radius: 12px; 
@@ -103,8 +247,72 @@
             <h2><i class="fa-solid fa-file-contract"></i> 2. Impacto en Matriculación, RTV y Traspaso de Dominio</h2>
             <p>Arrastrar una multa o condición sin resolver suele reflejarse en los momentos clave del ciclo del vehículo:</p>
             <p>• <strong>Matriculación anual y recargos:</strong> Si el vehículo no cumplió plazos o mantiene valores pendientes, el trámite puede bloquearse hasta regularizar el rubro correspondiente.<br>
-            • <strong>Revisión Técnica Vehicular (RTV):</strong> Las inconsistencias o condicionamientos asociados al historial del vehículo impiden cerrar el proceso con normalidad.<br>
-            • <strong>Compraventa y traspaso:</strong> Si compras un carro con una multa o condición activa, el costo o la traba del trámite puede recaer en el comprador si no se aclara antes de pagar o firmar.</p>
+- <strong>Revisión Técnica Vehicular (RTV):</strong> Las inconsistencias o condicionamientos asociados al historial del vehículo impiden cerrar el proceso con normalidad.<br>
+- <strong>Compraventa y traspaso:</strong> Si compras un carro con una multa o condición activa, el costo o la traba del trámite puede recaer en el comprador si no se aclara antes de pagar o firmar.</p>
+
+            <!-- Simulador específico para condicional AMT y trámites -->
+            <div class="simulador-condicional">
+                <div class="simulador-top">
+                    <span class="simulador-titulo"><i class="fa-solid fa-clipboard-check"></i> Comprobador de impacto de multa por condicional AMT</span>
+                    <span id="chip-semaforo" class="chip-semaforo">🟡 Revisar antes de firmar</span>
+                </div>
+
+                <div class="chips-escenario">
+                    <button type="button" class="btn-escenario activo" onclick="aplicarPresetAMT('traspaso-compra', 'pendiente', this)">Condicional pendiente en traspaso</button>
+                    <button type="button" class="btn-escenario" onclick="aplicarPresetAMT('matricula-rtv', 'pendiente', this)">Condicional pendiente en RTV / matrícula</button>
+                    <button type="button" class="btn-escenario" onclick="aplicarPresetAMT('traspaso-compra', 'duda', this)">Condicional sin detalle claro al comprar</button>
+                </div>
+
+                <div class="selector-condicional-grid">
+                    <div>
+                        <label for="tramite-condicional">Trámite afectado por el condicional</label>
+                        <select id="tramite-condicional" onchange="revisarImpactoCondicional()">
+                            <option value="matricula-rtv">Matriculación anual o RTV</option>
+                            <option value="traspaso-compra">Compraventa y traspaso</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="estado-condicional">Cómo aparece el condicional AMT</label>
+                        <select id="estado-condicional" onchange="revisarImpactoCondicional()">
+                            <option value="pendiente">Pendiente o sin regularizar</option>
+                            <option value="duda">Visible en consulta pero sin aclarar origen</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="placa-condicional">Placa del vehículo (opcional)</label>
+                        <input id="placa-condicional" type="text" maxlength="10" placeholder="Ej. ABC-1234" class="campo-placa-input" oninput="revisarImpactoCondicional()">
+                    </div>
+                </div>
+
+                <!-- Casillas interactivas de validación previa -->
+                <div class="checklist-condicional">
+                    <div class="checklist-titulo">Marca lo que ya validaste antes de avanzar:</div>
+                    <label class="check-item">
+                        <input type="checkbox" class="chk-validacion" onchange="revisarImpactoCondicional()">
+                        <span>Confirmé el origen exacto del condicional AMT y si exige regularización previa</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" class="chk-validacion" onchange="revisarImpactoCondicional()">
+                        <span>Revisé multas, recargos y estado de matrícula o RTV pendiente</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" class="chk-validacion" onchange="revisarImpactoCondicional()">
+                        <span>Verifiqué gravámenes, bloqueos o procesos legales asociados a la placa</span>
+                    </label>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: #475569; font-weight: 600;">
+                    <span>Probabilidad de freno en el trámite</span>
+                    <span id="porcentaje-traba">85%</span>
+                </div>
+                <div class="barra-fricción-wrap">
+                    <div id="barra-fricción" class="barra-fricción-fill"></div>
+                </div>
+
+                <div id="salida-condicional" class="resultado-condicional">
+                    Elige cómo figura el condicional AMT y qué trámite vas a realizar para ver su efecto práctico.
+                </div>
+            </div>
 
             <!-- Caja Alerta PRO -->
             <div class="caja-alerta">
@@ -120,8 +328,8 @@
             <h2><i class="fa-solid fa-magnifying-glass-chart"></i> 3. Qué Revisar Antes de Pagar, Matricular o Firmar</h2>
             <p>Para evitar sorpresas o gastos duplicados, conviene revisar el panorama completo de la placa antes de tomar decisiones:</p>
             <p>• <strong>Multas y sanciones pendientes:</strong> Verificar si existen infracciones, valores impagos o rubros asociados en las entidades correspondientes.<br>
-            • <strong>Estado de calendarización y matrícula:</strong> Confirmar si el vehículo está al día en su cronograma o si arrastra rezagos y recargos.<br>
-            • <strong>Gravámenes, bloqueos y procesos:</strong> Revisar que no existan limitaciones legales o judiciales que impidan disponer o transferir el vehículo.</p>
+- <strong>Estado de calendarización y matrícula:</strong> Confirmar si el vehículo está al día en su cronograma o si arrastra rezagos y recargos.<br>
+- <strong>Gravámenes, bloqueos y procesos:</strong> Revisar que no existan limitaciones legales o judiciales que impidan disponer o transferir el vehículo.</p>
         </div>
 
         <!-- Preguntas Frecuentes Nivel Pro -->
@@ -202,6 +410,86 @@
        </svg>
        VerifiCar Placa
     </a>
+
+    <script>
+    function aplicarPresetAMT(tramite, estado, btnEl) {
+        document.getElementById("tramite-condicional").value = tramite;
+        document.getElementById("estado-condicional").value = estado;
+        document.querySelectorAll(".btn-escenario").forEach(b => b.classList.remove("activo"));
+        if (btnEl) btnEl.classList.add("activo");
+        revisarImpactoCondicional();
+    }
+
+    function revisarImpactoCondicional() {
+        const tramite = document.getElementById("tramite-condicional").value;
+        const estado = document.getElementById("estado-condicional").value;
+        const placaRaw = document.getElementById("placa-condicional").value.trim().toUpperCase();
+        const checks = document.querySelectorAll(".chk-validacion");
+        let marcados = 0;
+        checks.forEach(c => { if (c.checked) marcados++; });
+
+        const salida = document.getElementById("salida-condicional");
+        const chip = document.getElementById("chip-semaforo");
+        const barra = document.getElementById("barra-fricción");
+        const pct = document.getElementById("porcentaje-traba");
+
+        let basePct = 65;
+        let texto = "";
+
+        if (tramite === "traspaso-compra" && estado === "pendiente") {
+            basePct = 85;
+            texto = "<strong>Condicional AMT pendiente en compraventa:</strong> puede frenar o condicionar el traspaso si el sistema exige regularización previa o si se suma a otras deudas/bloqueos. Conviene exigir aclaración o ajuste antes de pagar.";
+        } else if (tramite === "traspaso-compra" && estado === "duda") {
+            basePct = 65;
+            texto = "<strong>Condicional sin detalle claro al comprar:</strong> si aparece un condicional o multa sin aclarar su origen, revisar el historial completo de la placa evita asumir costos o trabas después de firmar.";
+        } else if (tramite === "matricula-rtv" && estado === "pendiente") {
+            basePct = 75;
+            texto = "<strong>Condicional AMT pendiente en matrícula / RTV:</strong> un rubro o condición sin regularizar puede impedir cerrar la revisión o matriculación hasta sanear el requisito pendiente.";
+        } else {
+            basePct = 50;
+            texto = "<strong>Condicional visible sin detalle claro en trámite:</strong> confirmar el origen del condicional o multa te evita vueltas en matrícula, RTV o procesos vinculados a la placa.";
+        }
+
+        const ajustePct = Math.max(15, basePct - (marcados * 15));
+        let colorBarra = "#d97706";
+        let chipTxt = "🟡 Revisar antes de firmar";
+        let chipBg = "#fef3c7";
+        let chipColor = "#92400e";
+
+        if (ajustePct >= 70) {
+            colorBarra = "#dc2626";
+            chipTxt = "🔴 Freno probable en trámite";
+            chipBg = "#fee2e2";
+            chipColor = "#991b1b";
+        } else if (ajustePct >= 45) {
+            colorBarra = "#d97706";
+            chipTxt = "🟡 Aclarar antes de avanzar";
+            chipBg = "#fef3c7";
+            chipColor = "#92400e";
+        } else {
+            colorBarra = "#15803d";
+            chipTxt = "🟢 Puntos base marcados";
+            chipBg = "#dcfce7";
+            chipColor = "#166534";
+        }
+
+        chip.textContent = chipTxt;
+        chip.style.background = chipBg;
+        chip.style.color = chipColor;
+        barra.style.width = ajustePct + "%";
+        barra.style.backgroundColor = colorBarra;
+        pct.textContent = ajustePct + "%";
+
+        const detallePlaca = placaRaw ? " (Placa: " + placaRaw + ")" : "";
+        const resumenChecklist = marcados > 0 ? `<div style="margin-top:6px; font-size:0.84rem; color:#475569;">Validaciones marcadas: <strong>${marcados} de 3</strong>${detallePlaca}.</div>` : "";
+        const msgWa = encodeURIComponent("Hola, VerifiCar Ecuador, revisé el artículo de multa por condicional AMT" + detallePlaca + " (" + tramite + " / " + estado + ", " + marcados + "/3 validaciones) y quiero verificar una placa");
+        const etiquetaLink = placaRaw ? `VerifiCar placa ${placaRaw} por WhatsApp →` : "VerifiCar esta placa por WhatsApp →";
+
+        salida.innerHTML = `<div>${texto}</div>${resumenChecklist}<a class="link-auditoria-condicional" href="https://wa.me/593992661432?text=${msgWa}" target="_blank">${etiquetaLink}</a>`;
+    }
+
+    revisarImpactoCondicional();
+    </script>
 
 </body>
 </html>
