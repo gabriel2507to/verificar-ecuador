@@ -28,6 +28,65 @@
         p { text-align: justify; text-justify: inter-word; margin: 10px 0; color: #333; }
         .caja-alerta { background: #fffbe2; border: 1px solid #fcd34d; border-radius: 12px; padding: 20px; margin: 20px 0; display: flex; gap: 15px; align-items: flex-start; }
         .caja-alerta i { font-size: 1.5rem; color: #d97706; margin-top: 2px; }
+
+        /* Checklist rápido de riesgo legal y coactivas */
+        .chequeo-riesgo {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 18px;
+            margin-top: 18px;
+        }
+        .chequeo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .chequeo-grid label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+        .chequeo-grid select {
+            width: 100%;
+            padding: 9px 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #1a1a1a;
+            font-size: 0.92rem;
+        }
+        .btn-chequeo {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .resultado-chequeo {
+            margin-top: 12px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            font-size: 0.92rem;
+            color: #1e293b;
+        }
+        .link-auditoria-coactiva {
+            display: inline-block;
+            margin-top: 8px;
+            color: #1d4099;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
         .btn-cta { display: block; text-align: center; background: var(--primary-blue); color: white; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 35px; box-shadow: 0 4px 12px rgba(29, 64, 153, 0.25); transition: transform 0.2s; }
         .btn-cta:hover { transform: translateY(-2px); }
     </style>
@@ -63,6 +122,32 @@
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 <div style="font-size: 0.9rem; color: #78350f;">
                     <strong>Consejo Pro:</strong> VerifiCa siempre que la cadena de propiedad esté clara y que la persona que te vende sea el titular legal en la base de datos oficial o cuente con un poder especial notariado y vigente.
+                </div>
+            </div>
+
+            <!-- Chequeo rápido de riesgo por titularidad y coactivas -->
+            <div class="chequeo-riesgo">
+                <div class="chequeo-grid">
+                    <div>
+                        <label for="situacion-titular">Situación del vendedor</label>
+                        <select id="situacion-titular">
+                            <option value="titular">Es el titular inscrito</option>
+                            <option value="poder">Vende con poder notariado</option>
+                            <option value="tercero">Tercero / contrato abierto sin traspaso</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="situacion-coactiva">Deudas de rodaje / coactiva</label>
+                        <select id="situacion-coactiva">
+                            <option value="sin-indicio">Sin indicio de deuda o bloqueo</option>
+                            <option value="duda">Hay duda o años de matrícula pendientes</option>
+                            <option value="coactiva">Posible coactiva o medida cautelar</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn-chequeo" onclick="evaluarRiesgoCoactiva()">VerifiCar nivel de precaución</button>
+                <div id="salida-riesgo-coactiva" class="resultado-chequeo">
+                    Selecciona la situación del vendedor y el estado de deudas/coactivas para ver qué conviene exigir antes de dar un anticipo.
                 </div>
             </div>
         </div>
@@ -123,6 +208,26 @@
        </svg>
        VerifiCar Placa
     </a>
+
+    <script>
+    function evaluarRiesgoCoactiva() {
+        const titular = document.getElementById("situacion-titular").value;
+        const coactiva = document.getElementById("situacion-coactiva").value;
+        const salida = document.getElementById("salida-riesgo-coactiva");
+
+        let diagnostico = "";
+        if (titular === "tercero" || coactiva === "coactiva") {
+            diagnostico = "<strong>Alerta alta antes de entregar dinero:</strong> con tercero sin traspaso formal o indicio de coactiva/medida cautelar, conviene auditar la placa y verificar gravámenes y procesos antes de dar una seña.";
+        } else if (titular === "poder" || coactiva === "duda") {
+            diagnostico = "<strong>Precaución media:</strong> verifica que el poder notariado esté vigente y revisa si existen deudas de rodaje, matrícula o bloqueos vinculados al historial del vehículo.";
+        } else {
+            diagnostico = "<strong>Base más ordenada, pero no definitiva:</strong> aunque el vendedor figure como titular sin indicio de deuda, siempre conviene verificar gravámenes, multas y antecedentes por placa antes de cerrar.";
+        }
+
+        const textoWa = encodeURIComponent("Hola, VerifiCar Ecuador, revisé el artículo de historial de dueños y coactivas (" + titular + " / " + coactiva + ") y quiero auditar una placa");
+        salida.innerHTML = `<div>${diagnostico}</div><a class="link-auditoria-coactiva" href="https://wa.me/593992661432?text=${textoWa}" target="_blank">Revisar historial, gravámenes y coactivas por WhatsApp →</a>`;
+    }
+    </script>
     
 </body>
 </html>
